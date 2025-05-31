@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME Textbooks - KSU 2024 Scheme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../pages.css">
+    <style>
+        /* Custom scrollbar style - simple blue line */
+        .scrollable-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .scrollable-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .scrollable-list::-webkit-scrollbar-thumb {
+            background-color: #0066cc;
+            border-radius: 2px;
+        }
+        
+        /* For Firefox */
+        .scrollable-list {
+            scrollbar-width: thin;
+            scrollbar-color: #0066cc transparent;
+        }
+        
+        /* Mobile semester cards layout */
+        @media (max-width: 768px) {
+            .semester-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+            
+            .semester-card {
+                width: 100%;
+                height: auto !important;
+                min-height: 300px;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Coming soon styling */
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .coming-soon i {
+            font-size: 2rem;
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <div class="logo-images">
+                    <img src="../../images/ksu logo.png" alt="KSU Logo" class="logo-image logo-ksu">
+                    <img src="../../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
+                </div>
+                <a href="../../index.html">KSU Student Assist Cell</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../notes.html">Notes</a></li>
+                <li><a href="../question-papers.html">Question Papers</a></li>
+                <li><a href="../syllabus.html">Syllabus</a></li>
+                <li><a href="../faq.html">FAQ</a></li>                
+                <li><a href="../lectures.html">Lectures</a></li>
+            </ul>
+            <div class="theme-toggle-container">
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="page-header">
+            <h1>Mechanical Engineering Textbooks</h1>
+            <p>Access scanned and reference textbooks for ME department.</p>
+            <p><a href="../textbooks.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Departments</a></p>
+        </section>
+
+        <div class="textbook-container">
+            <div class="semester-grid">
+                <div class="semester-card">
+                    <h2>Semester 1</h2>
+                    <div class="scrollable-list">
+                        <ul class="textbook-list">
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Introduction to Civil and Mechanical Engineering</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Mathematics</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Chemistry</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Algorithmic Thinking with Python</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Engineering Graphics</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 2</h2>
+                    <div class="scrollable-list">
+                        <ul class="textbook-list">
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Mathematics</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Physics</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Engineering Graphics</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Introduction to Electrical and Electronics Engineering</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Engineering Entrepreneurship</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Material Science Engineering (Core)</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 3</h2>
+                    <div class="scrollable-list">
+                        <div class="coming-soon">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Coming soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 4</h2>
+                    <div class="scrollable-list">
+                        <div class="coming-soon">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Coming soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 5</h2>
+                    <div class="scrollable-list">
+                        <div class="coming-soon">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Coming soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 6</h2>
+                    <div class="scrollable-list">
+                        <div class="coming-soon">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Coming soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 7</h2>
+                    <div class="scrollable-list">
+                        <div class="coming-soon">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Coming soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <h2>Semester 8</h2>
+                    <div class="scrollable-list">
+                        <div class="coming-soon">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Coming soon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; KSU CET 2025. All rights reserved.</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html> 
+

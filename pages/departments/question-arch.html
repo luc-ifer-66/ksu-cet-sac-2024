@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Question Papers - KSU 2024 Scheme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../pages.css">
+    <style>
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1450px) {
+            .subject-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .subject-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .subject-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .subject-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        .subject-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px var(--shadow-color);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            overflow: hidden;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        
+        .subject-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--highlight-color));
+            color: var(--text-light);
+            padding: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .subject-content {
+            padding: 1rem;
+        }
+        
+        .paper-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .paper-list li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .paper-list li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed);
+        }
+        
+        .paper-list li a:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .paper-list li a i {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <div class="logo-images">
+                    <img src="../../images/ksu logo.png" alt="KSU Logo" class="logo-image logo-ksu">
+                    <img src="../../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
+                </div>
+                <a href="../../index.html">KSU Student Assist Cell</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../notes.html">Notes</a></li>
+                <li><a href="../textbooks.html">Textbooks</a></li>
+                <li><a href="../question-papers.html">Question Papers</a></li>
+                <li><a href="../syllabus.html">Syllabus</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+                <li><a href="../lectures.html">Lectures</a></li>
+            </ul>
+            <div class="theme-toggle-container">
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="page-header">
+            <a href="../question-papers.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Departments</a>
+            <h1>Architecture Question Papers</h1>
+            <p>Access previous year question papers.</p>
+            <p>Note: These question papers are from the 2021 scheme. The 2024 scheme will be updated soon.</p>
+        </section>
+
+        <div class="papers-container">
+            <div class="subject-grid">
+                <div class="subject-card">
+                    <div class="subject-header">Semester 1</div>
+                    <div class="subject-content">
+                        <ul class="paper-list">
+                            <li><a href="https://drive.google.com/file/d/1l6iaGw5LmjXhUW51ct8KnUMxUbGAGnuZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Semester Paper <i class="fas fa-download"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 2</div>
+                    <div class="subject-content">
+                        <ul class="paper-list">
+                            <li><a href="https://drive.google.com/file/d/1lArYZpODMhYcFGPUF3amo2neAkaXtzMH/view?usp=sharing" target="_blank" rel="noopener noreferrer">Semester Paper <i class="fas fa-download"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 3</div>
+                    <div class="subject-content">
+                        <ul class="paper-list">
+                            <li><a href="https://drive.google.com/file/d/1l8lhVQ5jeRwCslWUzIgrM__KnOTuI8MU/view?usp=sharing" target="_blank" rel="noopener noreferrer">Semester Paper <i class="fas fa-download"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 4</div>
+                    <div class="subject-content">
+                        <ul class="paper-list">
+                            <li><a href="https://drive.google.com/file/d/1lCjUNOMXedIM_RuPOqDibMOz23UWOdjO/view?usp=sharing" target="_blank" rel="noopener noreferrer">Semester Paper <i class="fas fa-download"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 5</div>
+                    <div class="subject-content">
+                        <ul class="paper-list">
+                            <li><a href="https://drive.google.com/file/d/1lNYsBYpedRY7BAnuNTeKPWcbn8SJQ5Gx/view?usp=sharing" target="_blank" rel="noopener noreferrer">Semester Paper <i class="fas fa-download"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 6</div>
+                    <div class="subject-content">
+                        <ul class="paper-list">
+                            <li><a href="https://drive.google.com/file/d/1lRIJZJtJNdY1KnSsJDONzyQnZzUXZ-98/view?usp=sharing" target="_blank" rel="noopener noreferrer">Semester Paper <i class="fas fa-download"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 7</div>
+                    <div class="subject-content">
+                        <p>Question papers will be available soon.</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 8</div>
+                    <div class="subject-content">
+                        <p>Question papers will be available soon.</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 9</div>
+                    <div class="subject-content">
+                        <p>Question papers will be available soon.</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-header">Semester 10</div>
+                    <div class="subject-content">
+                        <p>Question papers will be available soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; KSU CET 2025. All rights reserved.</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
