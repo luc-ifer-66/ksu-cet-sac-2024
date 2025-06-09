@@ -1,3 +1,27 @@
+:root {
+  --primary-color: #2563eb;
+  --accent-color: #06b6d4;
+  --accent-gradient: linear-gradient(90deg, #06b6d4 0%, #2563eb 100%);
+  --background-color: #10172a;
+  --background-gradient: linear-gradient(135deg, #10172a 0%, #1e293b 100%);
+  --card-glass: rgba(16, 23, 42, 0.96);
+  --card-glass-blur: 14px;
+  --card-border: rgba(6, 182, 212, 0.12);
+  --text-color: #f8fafc;
+  --text-muted: #cbd5e1;
+  --shadow-color: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  --border-radius: 1.5rem;
+  --transition: 0.3s cubic-bezier(.4,2,.6,1);
+  --max-width: 1200px;
+  --test-color: #2563eb;
+  --toolbar-bg: rgba(16, 23, 42, 0.98);
+}
+body {
+  color: var(--text-color) !important;
+  position: relative;
+  overflow-x: hidden;
+}
+
 /* Common Page Styles */
 .page-header {
     text-align: center;
@@ -30,14 +54,14 @@
 .department-card {
     background-color: var(--card-background);
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px var(--shadow-color);
+    box-shadow: 0 2px 4px var(--test-color);
     overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .department-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px var(--shadow-color);
+    box-shadow: 0 5px 15px var(--test-color);
 }
 
 .department-card h2 {
@@ -1035,4 +1059,187 @@ main .semester-grid {
     margin-bottom: 2rem;
     padding: 1rem;
     margin-top: 0;
-} 
+}
+
+.coming-soon, .coming-soon-section {
+  background: var(--card-glass) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--shadow) !important;
+  border: 1.5px solid var(--card-border) !important;
+  color: var(--text-color) !important;
+  padding: 2rem !important;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.coming-soon i, .coming-soon-section i, .coming-soon-icon {
+  color: var(--primary-color) !important;
+}
+.coming-soon p, .coming-soon-section p {
+  color: var(--text-muted) !important;
+}
+
+.quick-toolbar {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  z-index: 1200;
+  background: var(--toolbar-bg);
+  border-radius: 2rem;
+  box-shadow: 0 2px 16px 0 rgba(99,102,241,0.13);
+  padding: 0.7rem 0.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.quick-toolbar button {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  border-radius: 50%;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  cursor: pointer;
+}
+.quick-toolbar button:hover {
+  background: var(--accent-gradient);
+  color: #fff;
+  transform: scale(1.13);
+}
+@media (max-width: 600px) {
+  .quick-toolbar {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.navbar .nav-content {
+  justify-content: flex-start !important;
+}
+
+.logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  white-space: nowrap !important;
+}
+
+.nav-links {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.navbar {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  border-left: none !important;
+}
+
+.department-select {
+  background: rgba(16, 23, 42, 0.98);
+  color: #f8fafc;
+  border: 1.5px solid #2563eb;
+  border-radius: 1rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px 0 rgb(11, 160, 205);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.department-select option {
+  background: rgba(16, 23, 42, 0.98);
+  color: #f8fafc;
+}
+.department-select:focus, .department-select:hover {
+  border: 1.5px solid #06b6d4;
+  outline: none;
+  box-shadow: 0 4px 16px 0 rgba(6,182,212,0.15);
+}
+/* Remove default arrow for Chrome */
+.department-select::-ms-expand { display: none; }
+.department-select::-webkit-scrollbar {
+  width: 8px;
+  background: rgba(16, 23, 42, 0.98);
+}
+.department-select::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 4px;
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 1000px) {
+  .nav-content {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    padding: 0 0.5rem;
+  }
+  .logo {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+  }
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: var(--background-color);
+    flex-direction: column !important;
+    width: 100vw;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.25);
+    z-index: 999;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    align-items: flex-start !important;
+  }
+  .nav-links.active {
+    display: flex !important;
+  }
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: auto;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+}
+
+@media (min-width: 1001px) {
+  .nav-toggle {
+    display: none !important;
+  }
+  .nav-links {
+    display: flex !important;
+    position: static;
+    flex-direction: row !important;
+    background: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+    gap: 1.5rem;
+    align-items: center !important;
+  }
+}                       

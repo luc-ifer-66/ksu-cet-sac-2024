@@ -3,21 +3,6 @@ const themeToggle = document.getElementById('themeToggle');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.querySelector('.nav-links');
 
-// Theme Toggle
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-}
-
-// Initialize theme
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-}
-
 // Mobile Navigation Toggle
 function toggleNavigation() {
     navLinks.classList.toggle('active');
@@ -61,45 +46,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Event Listeners
-themeToggle.addEventListener('click', toggleTheme);
 navToggle.addEventListener('click', toggleNavigation);
 
-// Initialize theme on page load
-document.addEventListener('DOMContentLoaded', initializeTheme);
-
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+// --- Search Functionality ---
+const searchInput = document.getElementById('searchInput');
+const serviceGrid = document.getElementById('serviceGrid');
+const serviceCards = serviceGrid ? Array.from(serviceGrid.getElementsByClassName('service-card')) : [];
+if (searchInput && serviceCards.length) {
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        serviceCards.forEach(card => {
+            const title = card.getAttribute('data-title')?.toLowerCase() || '';
+            const text = card.textContent.toLowerCase();
+            if (title.includes(query) || text.includes(query)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
 }
 
-// Add scroll-based animations
-const sections = document.querySelectorAll('.section');
-const observerOptions = {
-    root: null,
-    threshold: 0.1,
-    rootMargin: '0px'
-};
+// --- Progress Bar Demo (for multi-step or loading) ---
+const progressBar = document.getElementById('progress-bar');
+function animateProgressBar() {
+    if (!progressBar) return;
+    progressBar.style.width = '0';
+    setTimeout(() => {
+        progressBar.style.width = '100%';
+        setTimeout(() => {
+            progressBar.style.width = '0';
+        }, 1200);
+    }, 300);
+}
+// Example: animate on page load
+window.addEventListener('DOMContentLoaded', animateProgressBar);
 
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+// --- Quick Toolbar (optional: add tooltip on hover) ---
+const toolbar = document.querySelector('.quick-toolbar');
+if (toolbar) {
+    toolbar.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            btn.setAttribute('data-show', '1');
+        });
+        btn.addEventListener('mouseleave', function() {
+            btn.removeAttribute('data-show');
+        });
     });
-}, observerOptions);
-
-sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-    sectionObserver.observe(section);
-}); 
+}

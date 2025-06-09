@@ -43,12 +43,11 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">
+            <div class="logo" style="display: flex; align-items: center; gap: 0.7rem;">
                 <div class="logo-images">
-                    <img src="../images/ksu logo.png" alt="KSU Logo" class="logo-image logo-ksu">
                     <img src="../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
                 </div>
-                <a href="../index.html">KSU Student Assist Cell</a>
+                <a href="../index.html" style="white-space: nowrap; font-size: 1.45rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.01em;">KSU Student Assist Cell</a>
             </div>
             <div class="nav-toggle" id="navToggle">
                 <span></span>
@@ -56,19 +55,13 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="notes.html">Notes</a></li>
-                <li><a href="textbooks.html">Textbooks</a></li>
-                <li><a href="question-papers.html">Question Papers</a></li>
-                <li><a href="syllabus.html">Syllabus</a></li>
-                <li><a href="lectures.html">Lectures</a></li>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="notes.html"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
+                <li><a href="papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
+                <li><a href="syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
+                <li><a href="lectures.html"><i class="fas fa-chalkboard-teacher"></i> Lectures</a></li>
             </ul>
-            <div class="theme-toggle-container">
-                <button id="themeToggle" class="theme-toggle">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
         </div>
     </nav>
 
@@ -87,6 +80,16 @@
             <p>The FAQ will include information about academic regulations, exam patterns, credit systems, and other important details to help students understand the new scheme better.</p>
         </div>
     </main>
+
+    <!-- Quick Access Toolbar -->
+    <div class="quick-toolbar">
+        <button title="Notes" onclick="location.href='notes.html'"><i class="fas fa-book"></i></button>
+        <button title="Textbooks" onclick="location.href='textbooks.html'"><i class="fas fa-book-reader"></i></button>
+        <button title="Papers" onclick="location.href='papers.html'"><i class="fas fa-file-alt"></i></button>
+        <button title="Syllabus" onclick="location.href='syllabus.html'"><i class="fas fa-list-alt"></i></button>
+        <button title="FAQ" onclick="location.href='faq.html'"><i class="fas fa-question-circle"></i></button>
+        <button title="Lectures" onclick="location.href='lectures.html'"><i class="fas fa-chalkboard-teacher"></i></button>
+    </div>
 
     <footer>
         <p>&copy; KSU CET 2025. All rights reserved.</p>

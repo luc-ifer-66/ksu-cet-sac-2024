@@ -65,6 +65,13 @@
             font-size: 1.2rem;
             color: #555;
         }
+        
+        .semester-card {
+            background: rgba(16, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(6, 182, 212, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+        }
     </style>
 </head>
 <body>
@@ -72,10 +79,9 @@
         <div class="nav-content">
             <div class="logo">
                 <div class="logo-images">
-                    <img src="../../images/ksu logo.png" alt="KSU Logo" class="logo-image logo-ksu">
-                    <img src="../../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
+                     <img src="../../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
                 </div>
-                <a href="../../index.html">KSU Student Assist Cell</a>
+                <a href="../../index.html" style="white-space: nowrap; font-size: 1.45rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.01em;">KSU Student Assist Cell</a>
             </div>
             <div class="nav-toggle" id="navToggle">
                 <span></span>
@@ -83,26 +89,21 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../notes.html">Notes</a></li>
-                <li><a href="../question-papers.html">Question Papers</a></li>
-                <li><a href="../syllabus.html">Syllabus</a></li>
-                <li><a href="../faq.html">FAQ</a></li>                
-                <li><a href="../lectures.html">Lectures</a></li>
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../notes.html"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="../textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
+                <li><a href="../papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
+                <li><a href="../syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
+                <li><a href="../faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="../lectures.html"><i class="fas fa-chalkboard-teacher"></i> Lectures</a></li>
             </ul>
-            <div class="theme-toggle-container">
-                <button id="themeToggle" class="theme-toggle">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
         </div>
     </nav>
     <main>
         <section class="page-header">
             <h1>Applied Electronics and Instrumentation Textbooks</h1>
             <p>Access scanned and reference textbooks for AEI department.</p>
-            <p><a href="../textbooks.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Departments</a></p>
+            <p><a href="../papers.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Departments</a></p>
         </section>
 
         <div class="textbook-container">
@@ -198,6 +199,16 @@
             </div>
         </div>
     </main>
+
+    <!-- Quick Access Toolbar -->
+    <div class="quick-toolbar">
+        <button title="Notes" onclick="location.href='../notes.html'"><i class="fas fa-book"></i></button>
+        <button title="Textbooks" onclick="location.href='../textbooks.html'"><i class="fas fa-book-reader"></i></button>
+        <button title="Papers" onclick="location.href='../papers.html'"><i class="fas fa-file-alt"></i></button>
+        <button title="Syllabus" onclick="location.href='../syllabus.html'"><i class="fas fa-list-alt"></i></button>
+        <button title="FAQ" onclick="location.href='../faq.html'"><i class="fas fa-question-circle"></i></button>
+        <button title="Lectures" onclick="location.href='../lectures.html'"><i class="fas fa-chalkboard-teacher"></i></button>
+    </div>
 
     <footer>
         <p>&copy; KSU CET 2025. All rights reserved.</p>

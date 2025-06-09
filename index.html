@@ -6,172 +6,131 @@
     <title>KSU Student Assist Cell - 2024 Scheme</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pages/pages.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <div class="logo-images">
-                    <img src="images/ksu logo.png" alt="KSU Logo" class="logo-image logo-ksu">
-                    <img src="images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
-                </div>
-                <a href="#">KSU Student Assist Cell</a>
+                <img src="images/ksu logo white.png" alt="KSU Logo" class="logo-image">
+                <a href="index.html" style="white-space: nowrap; font-size: 1.45rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.01em;">KSU Student Assist Cell</a>
             </div>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    
             <ul class="nav-links">
-                <li><a href="pages/notes.html">Notes</a></li>
-                <li><a href="pages/textbooks.html">Textbooks</a></li>
-                <li><a href="pages/question-papers.html">Question Papers</a></li>
-                <li><a href="pages/syllabus.html">Syllabus</a></li>
-                <li><a href="pages/faq.html">FAQ</a></li>
-                <li><a href="pages/lectures.html">Lectures</a></li>                
+                <li><a href="pages/notes.html"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="pages/textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
+                <li><a href="pages/papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
+                <li><a href="pages/syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
+                <li><a href="pages/faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="pages/lectures.html"><i class="fas fa-chalkboard-teacher"></i> Lectures</a></li>
             </ul>
-            <div class="theme-toggle-container">
-                <button id="themeToggle" class="theme-toggle">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
         </div>
     </nav>
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>KSU Student Assist Cell <span class="accent">2025</span></h1>
+            <p class="subtitle">Your all-in-one resource hub for CET students</p>
+        </div>
+    </header>
 
+    <!-- Service Grid -->
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>KSU Student Assist Cell for 2024 Scheme</h1>
-                <p>Your comprehensive resource for academic materials and information, all in one place.</p>
-                <p>By the students of KSU CET.</p>
+        <section class="service-grid" id="serviceGrid">
+            <div class="service-card" data-title="Notes">
+                <div class="service-icon main-icon"><i class="fas fa-book"></i></div>
+                <h2>Notes</h2>
+                <p>Comprehensive study notes for all subjects, organized by department and semester.</p>
+                <a href="pages/notes.html" class="section-link">View Notes <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-title="Textbooks">
+                <div class="service-icon main-icon"><i class="fas fa-book-reader"></i></div>
+                <h2>Textbooks</h2>
+                <p>Find scanned textbooks and reference materials needed for your courses.</p>
+                <a href="pages/textbooks.html" class="section-link">View Textbooks <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-title="Papers">
+                <div class="service-icon main-icon"><i class="fas fa-file-alt"></i></div>
+                <h2>Papers</h2>
+                <p>Access KTU model papers, series papers, and semester papers.</p>
+                <a href="pages/papers.html" class="section-link">View Papers <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-title="Syllabus">
+                <div class="service-icon main-icon"><i class="fas fa-list-alt"></i></div>
+                <h2>Syllabus</h2>
+                <p>Department-wise syllabus information for all semesters and courses.</p>
+                <a href="pages/syllabus.html" class="section-link">View Syllabus <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-title="FAQ">
+                <div class="service-icon main-icon"><i class="fas fa-question-circle"></i></div>
+                <h2>FAQ</h2>
+                <p>Frequently asked questions about the 2024 scheme and academic resources.</p>
+                <a href="pages/faq.html" class="section-link">View FAQ <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-title="Lectures">
+                <div class="service-icon main-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h2>Lectures</h2>
+                <p>Access recorded lectures, slides, and other teaching materials.</p>
+                <a href="pages/lectures.html" class="section-link">View Lectures <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-book"></i>
+        <!-- Contacts Section -->
+        <section class="contacts-section">
+            <h2>Contact Us</h2>
+            <div class="contacts-grid">
+                <!-- Contact cards (same as before, but with improved structure) -->
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Amina Jubair</h3>
+                    <p><i class="fas fa-phone"></i> 9037786170</p>
                 </div>
-                <h2>Notes</h2>
-                <p>Access comprehensive study notes for all subjects, organized by department and semester.</p>
-                <a href="pages/notes.html" class="section-link">View Notes <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-book-reader"></i>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Daris Benny</h3>
+                    <p><i class="fas fa-phone"></i> 9778135924</p>
                 </div>
-                <h2>Textbooks</h2>
-                <p>Find scanned textbooks and reference materials needed for your courses. <br>‎ </p>
-                <a href="pages/textbooks.html" class="section-link">View Textbooks <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-file-alt"></i>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Abhimanyu Pradeep</h3>
+                    <p><i class="fas fa-phone"></i> 7907516033</p>
                 </div>
-                <h2>Question Papers</h2>
-                <p>Access KTU model papers, series papers and semester papers.  <br>‎ </p>
-                <a href="pages/question-papers.html" class="section-link">View Question Papers <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-list-alt"></i>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Merlin Shiby</h3>
+                    <p><i class="fas fa-phone"></i> 9072492427</p>
                 </div>
-                <h2>Syllabus</h2>
-                <p>Department-wise syllabus information for all semesters and courses. <br>‎</p>
-                <a href="pages/syllabus.html" class="section-link">View Syllabus <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-question-circle"></i>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Anand Maheshwar</h3>
+                    <p><i class="fas fa-phone"></i> 9447839911</p>
                 </div>
-                <h2>FAQ</h2>
-                <p>Frequently asked questions about the 2024 scheme and academic resources. <br>‎</p>
-                <a href="pages/faq.html" class="section-link">View FAQ <i class="fas fa-arrow-right"></i></a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <div class="developer-icon"><i class="fas fa-code"></i></div>
+                    <h3>Mareo Manoj</h3>
+                    <p><i class="fas fa-phone"></i> 7025458339</p>
                 </div>
-                <h2>Lectures</h2>
-                <p>Access recorded lectures, slides, and other teaching materials organized by department and subject.</p>
-                <a href="pages/lectures.html" class="section-link">View Lectures <i class="fas fa-arrow-right"></i></a>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Mariam Jo Palakkadan</h3>
+                    <p><i class="fas fa-phone"></i> 9496622452</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user"></i></div>
+                    <h3>Noel Tom</h3>
+                    <p><i class="fas fa-phone"></i> 6238999360</p>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
-
-    <section class="contacts-section">
-        <h2>Contact Us</h2>
-        <div class="contacts-grid">
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Amina Jubair</h3>
-                <p><i class="fas fa-phone"></i> 9037786170</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Daris Benny</h3>
-                <p><i class="fas fa-phone"></i> 9778135924</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Abhimanyu Pradeep</h3>
-                <p><i class="fas fa-phone"></i> 7907516033</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Merlin Shiby</h3>
-                <p><i class="fas fa-phone"></i> 9072492427</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Anand Maheshwar</h3>
-                <p><i class="fas fa-phone"></i> 9447839911</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="developer-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Mareo Manoj</h3>
-                <p><i class="fas fa-phone"></i> 7025458339</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Mariam Jo Palakkadan</h3>
-                <p><i class="fas fa-phone"></i> 9496622452</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3>Noel Tom</h3>
-                <p><i class="fas fa-phone"></i> 6238999360</p>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <p>&copy; KSU CET 2025. All rights reserved.</p>
