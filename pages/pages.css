@@ -1,7 +1,6 @@
 :root {
-  --primary-color: #2563eb;
+  --primary-color: #1956db;
   --accent-color: #06b6d4;
-  --accent-gradient: linear-gradient(90deg, #06b6d4 0%, #2563eb 100%);
   --background-color: #10172a;
   --background-gradient: linear-gradient(135deg, #10172a 0%, #1e293b 100%);
   --card-glass: rgba(16, 23, 42, 0.96);
@@ -960,7 +959,7 @@ main .semester-card {
 }
 
 main .semester-card h2 {
-    background: #1397b9; /* Solid color instead of gradient to match second image */
+    background: var(--primary-color);
     color: var(--text-light);
     padding: 15px !important;
     font-size: 1.2rem;
@@ -1200,7 +1199,7 @@ main .semester-grid {
     box-shadow: 0 8px 32px 0 rgba(31,38,135,0.25);
     z-index: 999;
     padding: 1.5rem 0;
-    gap: 1.5rem;
+    gap: 0.75rem;
     align-items: flex-start !important;
   }
   .nav-links.active {
@@ -1239,7 +1238,7 @@ main .semester-grid {
     box-shadow: none;
     width: auto;
     padding: 0;
-    gap: 1.5rem;
+    gap: 0.75rem;
     align-items: center !important;
   }
 }                       
