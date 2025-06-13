@@ -11,93 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../pages.css">
     <style>
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-        }
-        
-        @media (max-width: 1450px) {
-            .subject-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        @media (max-width: 1200px) {
-            .subject-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .subject-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .subject-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-        
-        .subject-card {
-            background: rgba(16, 23, 42, 0.85);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(6, 182, 212, 0.12);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-        
-        .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
-        
-        .subject-header {
-            background: linear-gradient(135deg, rgba(36,99,235,0.85) 0%, rgba(6,182,212,0.65) 100%);
-            color: #f8fafc;
-            padding: 1rem;
-            font-size: 1.1rem;
-            text-align: center;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-            backdrop-filter: blur(8px);
-        }
-        
-        .subject-content {
-            background: transparent !important;
-            padding: 1rem;
-        }
-        
-        .paper-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .paper-list li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .paper-list li a {
+        body {
+            background: radial-gradient(ellipse at 60% 40%, rgba(36, 99, 235, 0.10) 0%, transparent 70%), linear-gradient(135deg, #10172a 0%, #22304a 100%);
+            min-height: 80vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 0.5rem;
-            border-radius: var(--border-radius);
-            transition: background-color var(--transition-speed);
+            flex-direction: column;
         }
-        
-        .paper-list li a:hover {
-            background-color: var(--hover-color);
-        }
-        
-        .paper-list li a i {
-            color: var(--primary-color);
-        }
-        
         .quick-toolbar {
             position: fixed;
             bottom: 2.2rem;
@@ -169,6 +88,207 @@
                 width: 2.7rem;
                 height: 2.7rem;
                 font-size: 1.3rem;
+            }
+        }
+        .semester-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .semester-select {
+            padding: 0.5rem 1rem;
+            background-color: var(--hover-color);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            color: var(--text-color);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+            min-width: 200px;
+            text-align: center;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23888"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        
+        .semester-select:focus {
+            outline: none;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .semester-select:hover {
+            background-color: var(--background-color);
+        }
+        
+        .semester-tab {
+            display: none;
+        }
+        
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1600px) {
+            .subject-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .subject-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .subject-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .subject-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .subject-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .semester-selector {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        
+        .subject-card {
+            background: rgba(16, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(6, 182, 212, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        
+        .subject-header {
+            background: linear-gradient(135deg, rgba(36,99,235,0.85) 0%, rgba(6,182,212,0.65) 100%);
+            color: #f8fafc;
+            padding: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            backdrop-filter: blur(8px);
+        }
+        
+        .subject-content {
+            padding: 1rem;
+        }
+        
+        .paper-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .paper-list li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .paper-list li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed);
+        }
+        
+        .paper-list li a:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .paper-list li a i {
+            color: var(--primary-color);
+        }
+        
+        .semester-content {
+            display: none;
+        }
+        
+        .semester-content.active {
+            display: block;
+        }
+    
+            
+            .semester-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .textbook-list {
+                padding-left: 1rem;
+            }
+            
+            .textbook-list li {
+                margin-bottom: 0.5rem;
+            }
+            
+            .page-header h1 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+            
+            .page-header p {
+                font-size: 0.9rem;
+            }
+        
+        /* Mobile semester cards layout */
+        @media (max-width: 768px) {
+            .semester-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .semester-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Semester 2 specific grid */
+        #sem2 .subject-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        @media (max-width: 1200px) {
+            #sem2 .subject-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #sem2 .subject-grid {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
@@ -280,7 +400,7 @@
         </div>
     </main>
 
-    <!-- Quick Access Toolbar -->
+    <!-- Insert pixel-perfect toolbar from syllabus.html below -->
     <div class="quick-toolbar" id="quickToolbar">
         <div class="toolbar-buttons" id="toolbarButtons">
             <button title="Notes" onclick="location.href='../notes.html'"><i class="fas fa-book"></i></button>
@@ -288,7 +408,7 @@
             <button title="Papers" onclick="location.href='../papers.html'"><i class="fas fa-file-alt"></i></button>
             <button title="Syllabus" onclick="location.href='../syllabus.html'"><i class="fas fa-list-alt"></i></button>
             <button title="FAQ" onclick="location.href='../faq.html'"><i class="fas fa-question-circle"></i></button>
-            <button title="Lectures" onclick="location.href='../lectures.html'"><i class="fas fa-chalkboard-teacher'></i></button>
+            <button title="Lectures" onclick="location.href='../lectures.html'"><i class="fas fa-chalkboard-teacher"></i></button>
         </div>
         <button class="toolbar-toggle" id="toolbarToggle" title="Toggle Toolbar"><i class="fas fa-chevron-up"></i></button>
     </div>
