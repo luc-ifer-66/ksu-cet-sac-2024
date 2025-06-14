@@ -340,6 +340,23 @@ main {
   transform: scale(1.13);
 }
 
+/* Social Links Section */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin: 2rem 0 0 0;
+}
+.social-links a {
+  color: var(--text-color);
+  font-size: 1.6rem;
+  transition: color var(--transition), transform var(--transition);
+}
+.social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
 footer {
   text-align: center;
   color: var(--text-muted);
