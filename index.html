@@ -142,5 +142,20 @@
     <footer>
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Make entire service cards clickable
+        document.querySelectorAll('.service-card').forEach(card => {
+            const innerLink = card.querySelector('.section-link');
+            if (innerLink) {
+                // Change cursor to pointer to indicate clickability
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    // Navigate to the link destination
+                    window.location.href = innerLink.href;
+                });
+            }
+        });
+    </script>
 </body>
 </html> 
