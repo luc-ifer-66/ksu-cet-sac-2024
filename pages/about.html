@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KSU Student Assist Cell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pages.css">
+    <style>
+    .card-link {
+      width: 20em;
+      position: relative;
+      height: 3.5em;
+      border: 3px ridge #149CEA;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      transition: 1s;
+      border-radius: 0.9em;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Poppins', system-ui, sans-serif;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo" style="display: flex; align-items: center; gap: 0.7rem;">
+                <div class="logo-images">  
+                    <img src="../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark"> 
+                </div>
+                <a href="../index.html" style="white-space: nowrap; font-size: 1.45rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.01em;">KSU Student Assist Cell</a>
+            </div>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
+                <li><a href="textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
+                <li><a href="syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
+                <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="lectures.html"><i class="fas fa-chalkboard-teacher"></i> Lectures</a></li>
+                <li><a aria-current="page" href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="page-header">
+            <h1>About Us</h1>
+            <p>Learn more about the KSU CET Hostel Finder and our mission.</p>
+        </section>
+        <div class="papers-container" style="max-width: 700px; margin: 0 auto;">
+            <div class="department-card" style="background: var(--card-glass); box-shadow: var(--shadow-color); padding: 2.5rem 2rem; border-radius: var(--border-radius);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.2rem; color: var(--primary-color);">Our Mission</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                    KSU CET Hostel Finder was created by students, for students. Our goal is simple: make it effortless to discover safe, affordable, and convenient accommodation near <strong>College of Engineering, Trivandrum</strong>.
+                </p>
+                <h2 style="font-size: 1.2rem; margin-bottom: 0.7rem; color: var(--primary-color);">What We Do</h2>
+                <ol class="amenities-list" style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-color); text-align: left; margin-left: 0; padding-left: 1.2em;">
+                    <li>Curate up-to-date hostel listings with verified details.</li>
+                    <li>Offer powerful filters for distance, budget, amenities, and gender.</li>
+                    <li>Transparent pricing as given by the hostels.</li>
+                </ol>
+                <h2 style="font-size: 1.2rem; margin-bottom: 0.7rem; color: var(--primary-color);">Our other websites</h2>
+                <a href="https://ksucethostelfinder.netlify.app" target="_blank" rel="noopener">
+                    <button type="button" class="card-link">Visit KSU CET Hostel Finder Website</button>
+                </a>
+                <div class="social-links" aria-label="Social Media Links" style="margin-top: 2rem;">
+                    <a href="https://www.instagram.com/studentassistcell_cet/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; KSU CET 2025. All rights reserved.</p>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html> 
