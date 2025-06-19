@@ -69,14 +69,14 @@ body::before {
   padding: 0.5rem 0;
 }
 
-.nav-content {
-  max-width: var(--max-width);
+.navbar .nav-content {
+  max-width: 1800px;
+  width: 98vw;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between !important;
-  gap: 2rem;
-  padding: 0 2rem;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .logo {
