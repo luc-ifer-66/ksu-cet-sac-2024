@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="pages.css">
     <style>
     .card-link {
+      display: block;
       width: 20em;
-      position: relative;
       height: 3.5em;
       border: 3px ridge #149CEA;
       outline: none;
@@ -25,6 +25,17 @@
       font-weight: 600;
       font-family: 'Poppins', system-ui, sans-serif;
       cursor: pointer;
+      text-decoration: none;
+      line-height: 3.5em;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .card-link {
+        width: 90%;
+        max-width: 300px;
+      }
     }
     </style>
 </head>
@@ -67,8 +78,8 @@
                     <li>Provide a platform to access all the resources for studies.</li>
                 </ol>
                 <h2 style="font-size: 1.2rem; margin-bottom: 0.7rem; color: var(--primary-color);">Our other websites</h2>
-                <a href="https://ksucethostelfinder.netlify.app" target="_blank" rel="noopener">
-                    <button type="button" class="card-link">Visit KSU CET Hostel Finder Website</button>
+                <a href="https://ksucethostelfinder.netlify.app" target="_blank" rel="noopener" class="card-link" >
+                    Visit KSU CET Hostel Finder Website
                 </a>
             </div>
         </div>
