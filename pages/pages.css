@@ -1250,3 +1250,29 @@ main .semester-grid {
     border-style: solid;
     border-color: rgba(16, 23, 42, 0.95) transparent transparent transparent;
 }                       
+
+.keam-last-ranks {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    width: 90%; /* Default width for larger screens */
+}
+
+@media (max-width: 768px) {
+    .keam-last-ranks {
+        width: 95%; /* Slightly wider on mobile */
+        margin: 0.3rem auto;
+        border-radius: calc(var(--border-radius) * 0.75); /* Slightly smaller border radius on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .keam-last-ranks {
+        width: 98%; /* Almost full width on very small screens */
+        margin: 0.2rem auto;
+        border-radius: calc(var(--border-radius) * 0.5); /* Even smaller border radius on very small screens */
+    }
+}                       
