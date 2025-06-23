@@ -92,4 +92,35 @@ if (toolbar) {
         });
     });
 }
+
+// Entry Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('entryModal');
+    const closeBtn = modal.querySelector('.modal-close');
+    
+    function closeModal() {
+        if (modal) {
+            modal.remove(); // Completely remove the modal from DOM
+        }
+    }
+    
+    // Close modal when clicking the close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal when pressing ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+});
 });

@@ -12,6 +12,19 @@
     <link rel="stylesheet" href="pages/pages.css">
 </head>
 <body>
+    <!-- Entry Modal -->
+    <div id="entryModal" class="entry-modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-image-placeholder">
+               <img src="images/modal-image.jpg" alt="KEAM Last Rank 2024">
+            </div>
+            <div class="modal-text">
+                <h2>KEAM Last Rank 2024</h2>
+            </div>
+        </div>
+    </div>
+    
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-content">
@@ -151,19 +164,47 @@
     </footer>
 
     <script>
+        // Modal functionality
+        const modal = document.getElementById('entryModal');
+        const closeBtn = document.querySelector('.modal-close');
+
+        function closeModal() {
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal when clicking the close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                closeModal();
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal when pressing ESC key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
         // Make entire service cards clickable
         document.querySelectorAll('.service-card').forEach(card => {
             const innerLink = card.querySelector('.section-link');
             if (innerLink) {
-                // Change cursor to pointer to indicate clickability
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', () => {
-                    // Navigate to the link destination
                     window.location.href = innerLink.href;
                 });
             }
         });
     </script>
-    <script src="script.js"></script>
 </body>
 </html> 
