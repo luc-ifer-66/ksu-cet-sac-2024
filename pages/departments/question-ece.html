@@ -575,6 +575,19 @@
         if(localStorage.getItem('toolbarCollapsed') === 'true') {
             toolbar.classList.add('collapsed');
         }
+        // Semester switching logic
+        const semesterSelect = document.getElementById('semesterSelect');
+        const semesterContents = document.querySelectorAll('.semester-content');
+        semesterSelect.addEventListener('change', function() {
+            const selected = this.value;
+            semesterContents.forEach(function(content) {
+                if(content.id === selected) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        });
     });
     </script>
 </body>
