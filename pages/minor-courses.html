@@ -226,11 +226,12 @@
             flex-wrap: wrap;
             margin: 0 auto;
             margin-top: 0.5rem;
+            width: 100%;
         }
         .minor-card {
             background: var(--card-background);
             border-radius: 1.1rem;
-            color:
+            color: var(--text-color);
             box-shadow: 0 2px 8px 0 rgba(36,99,235,0.13);
             padding: 2rem 1.5rem 1.5rem 1.5rem;
             min-width: 220px;
@@ -258,11 +259,24 @@
                 flex-direction: column;
                 gap: 1.2rem;
                 align-items: center;
+                width: 100%;
             }
             .minor-card {
                 min-width: 0;
-                width: 90vw;
+                width: 92vw;
                 max-width: 98vw;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 1.2rem;
+                text-align: center;
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+                box-sizing: border-box;
+            }
+            .minor-card-title, .minor-card .info-btn {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>
@@ -289,7 +303,6 @@
                 <li><a href="papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
                 <li><a href="syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
                 <li><a href="new-admissions.html"><i class="fas fa-user-graduate"></i> New Admissions</a></li>
-                <li><a href="minor-courses.html"><i class="fas fa-graduation-cap"></i> Minor Courses</a></li>
                 <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
             </ul>
         </div>
@@ -402,7 +415,7 @@
         const deptData = {
             aei: {
                 label: 'Minor in Applied Electronics and Instrumentation.',
-                pdf: placeholderPDF
+                pdf: '../pdfs/AEI/AE Applied Electronics and Instrumentation.pdf'
             },
             ce: {
                 label: 'Minor course details for CE will be updated soon.',
@@ -410,29 +423,29 @@
             },
             cse: {
                 minors: [
-                    { value: 'ai', label: 'Minor in Artificial Intelligence', info: 'Minor in Artificial Intelligence (CSE).', pdf: placeholderPDF },
-                    { value: 'cs', label: 'Minor in Computer Science', info: 'Minor in Computer Science (CSE).', pdf: placeholderPDF }
+                    { value: 'ai', label: 'Minor in Artificial Intelligence', info: 'Minor in Artificial Intelligence (CSE).', pdf: '../pdfs/CSE/CS Artificial Intelligence.pdf' },
+                    { value: 'cs', label: 'Minor in Computer Science', info: 'Minor in Computer Science (CSE).', pdf: '../pdfs/CSE/CS Computer Science and Engineering.pdf' }
                 ]
             },
             ece: {
                 label: 'Minor in Electronics and Communication Engineering.',
-                pdf: placeholderPDF
+                pdf: '../pdfs/ECE/ECE Electronics and Communication Engg.pdf'
             },
             eee: {
                 minors: [
-                    { value: 'control', label: 'Minor in Control Engineering', info: 'Minor in Control Engineering (EEE).', pdf: placeholderPDF },
-                    { value: 'energy', label: 'Minor in Energy Engineering', info: 'Minor in Energy Engineering (EEE).', pdf: placeholderPDF },
-                    { value: 'power', label: 'Minor in Power Converters & Drives', info: 'Minor in Power Converters & Drives (EEE).', pdf: placeholderPDF }
+                    { value: 'control', label: 'Minor in Control Engineering', info: 'Minor in Control Engineering (EEE).', pdf: '../pdfs/EEE/EEE Control Engineering.pdf' },
+                    { value: 'energy', label: 'Minor in Energy Engineering', info: 'Minor in Energy Engineering (EEE).', pdf: '../pdfs/EEE/EEE Energy Engineering.pdf' },
+                    { value: 'power', label: 'Minor in Power Converters & Drives', info: 'Minor in Power Converters & Drives (EEE).', pdf: '../pdfs/EEE/EEE POWER CONVERTERS & DRIVES.pdf' }
                 ]
             },
             ie: {
                 label: 'Minor in Industrial and Systems Engineering.',
-                pdf: placeholderPDF
+                pdf: '../pdfs/IE/IE Industrial and Systems Engineering.pdf'
             },
             me: {
                 minors: [
-                    { value: 'fin', label: 'Minor in Financial Management', info: 'Minor in Financial Management (ME).', pdf: placeholderPDF },
-                    { value: 'isdm', label: 'Minor in Intelligent Systems Design Manufacturing', info: 'Minor in Intelligent Systems Design Manufacturing (ME).', pdf: placeholderPDF }
+                    { value: 'fin', label: 'Minor in Financial Management', info: 'Minor in Financial Management (ME).', pdf: '../pdfs/ME/ME Financial Management (Additional Offer).pdf' },
+                    { value: 'isdm', label: 'Minor in Intelligent Systems Design Manufacturing', info: 'Minor in Intelligent Systems Design Manufacturing (ME).', pdf: '../pdfs/ME/ME Intelligent Systems Design Manufacturing.pdf' }
                 ]
             }
         };

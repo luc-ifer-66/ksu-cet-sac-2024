@@ -386,6 +386,48 @@
             }
         }       
     </style>
+<!-- Modal CSS -->
+<style>
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+.image-modal .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+}
+.close-modal {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2100;
+    text-shadow: 0 2px 8px #000;
+}
+@media (max-width: 600px) {
+    .close-modal {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+    }
+}
+</style>
 </head>
 <body>
     <nav class="navbar">
@@ -494,6 +536,12 @@
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <img class="modal-content" id="modalImg" alt="KEAM 2024 Last Ranks">
+    </div>
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const toolbar = document.getElementById('quickToolbar');
@@ -562,6 +610,38 @@
                 });
             }
         });
+    });
+    </script>
+
+    <!-- Modal JS -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const img = document.querySelector('.keam-last-ranks');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.getElementById('closeModal');
+
+        if (img && modal && modalImg && closeModal) {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+            });
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape") {
+                    modal.style.display = 'none';
+                }
+            });
+        }
     });
     </script>
 
