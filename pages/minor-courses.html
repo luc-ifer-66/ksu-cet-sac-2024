@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minor Courses - KSU Student Assist Cell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pages.css">
+    <style>
+        /* Remove any .quick-toolbar, .toolbar-toggle, .toolbar-buttons styles here */
+        .quick-toolbar {
+            position: fixed;
+            bottom: 2.2rem;
+            right: 2.2rem;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: flex-end;
+            z-index: 1200;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            border-radius: 2rem;
+            transition: right 0.3s, width 0.3s;
+        }
+        .toolbar-toggle {
+            background: var(--primary-color);
+            border: none;
+            color: #fff;
+            font-size: 1.7rem;
+            border-radius: 50%;
+            width: 3.2rem;
+            height: 3.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.13);
+            margin-top: 0.5rem;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .toolbar-toggle:active {
+            background: var(--accent-color);
+        }
+        .toolbar-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: var(--toolbar-bg);
+            border-radius: 1.5rem 1.5rem 0.8rem 0.8rem;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.13);
+            padding: 1rem 0.7rem 0.5rem 0.7rem;
+            margin-bottom: 0.5rem;
+            transition: max-height 0.3s, opacity 0.3s, margin-bottom 0.3s;
+            max-height: 1000px;
+            opacity: 1;
+        }
+        .quick-toolbar.collapsed .toolbar-buttons {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+            padding: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .quick-toolbar.collapsed .toolbar-toggle i {
+            transform: rotate(180deg);
+        }
+        @media (max-width: 600px) {
+            .quick-toolbar {
+                right: 1rem;
+                bottom: 1rem;
+            }
+            .toolbar-buttons {
+                border-radius: 1.2rem 1.2rem 0.7rem 0.7rem;
+                padding: 0.7rem 0.5rem 0.3rem 0.5rem;
+            }
+            .toolbar-toggle {
+                width: 2.7rem;
+                height: 2.7rem;
+                font-size: 1.3rem;
+            }
+        }
+        /* --- DROPDOWN STYLES FROM NEW-ADMISSIONS --- */
+        .dropdown-section {
+            width: 85vw;
+            max-width: 1100px;
+            margin: 2.5rem auto 2rem auto;
+            padding: 1.5rem 0;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .custom-dropdown {
+            margin-bottom: 1.2rem;
+            border-radius: var(--border-radius);
+            background: rgba(36, 99, 235, 0.08);
+            box-shadow: 0 2px 10px 0 rgba(6,182,212,0.07);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .custom-dropdown:last-child {
+            margin-bottom: 0;
+        }
+        .dropdown-toggle {
+            width: 100%;
+            background: #10172a;
+            color: #fff;
+            border: none;
+            height: 5rem;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Exo 2', sans-serif;
+            padding: 1rem 1.2rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            transition: background 0.2s;
+        }
+        .dropdown-toggle:active, .dropdown-toggle:focus {
+            background: var(--accent-color);
+        }
+        .dropdown-content {
+            display: none;
+            background: rgba(16, 23, 42, 0.98);
+            color: var(--text-color);
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            border-top: 1px solid var(--border-color);
+            animation: fadeIn 0.3s;
+        }
+        .custom-dropdown.open .dropdown-content {
+            display: block;
+        }
+        .custom-dropdown.open .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+        .dropdown-toggle i {
+            margin-left: 0.7rem;
+            transition: transform 0.3s;
+        }
+        @media (max-width: 700px) {
+            .dropdown-section {
+                width: 85vw;
+                padding: 0.6rem 0;
+                margin: 1rem auto;
+            }
+            .dropdown-toggle {
+                font-size: 1rem;
+                padding: 0.7rem 0.8rem;
+            }
+            .dropdown-content {
+                padding: 0.8rem 0.7rem 0.7rem 0.7rem;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .info-btn, .dept-select {
+            width: 75vw;
+            max-width: 700px;
+            min-width: 220px;
+            margin: 0 auto;
+            display: block;
+            box-sizing: border-box;
+        }
+        .info-btn {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px var(--test-color);
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed), background 0.2s;
+            letter-spacing: 0.01em;
+            height: 70px;
+        }
+        .info-btn:hover, .info-btn:focus {
+            background: linear-gradient(135deg, var(--primary-color), var(--highlight-color));
+            color: var(--text-light);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 5px 15px var(--test-color);
+        }
+        .dept-select {
+            padding: 0.9rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            height: 70px;
+            margin-top: 1.2rem;
+        }
+        .minor-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            padding-bottom: 1.1rem;
+            color: var(--text-color);
+            letter-spacing: 0.01em;
+            text-align: center;
+        }
+        .info-btn, .dept-select {
+            text-decoration: none !important;
+            text-align: center;
+        }
+        .info-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .minor-cards-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+        }
+        .minor-card {
+            background: var(--card-background);
+            border-radius: 1.1rem;
+            color:
+            box-shadow: 0 2px 8px 0 rgba(36,99,235,0.13);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            min-width: 220px;
+            max-width: 320px;
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .minor-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1.1rem;
+            color: var(--text-color);
+            text-align: center;
+        }
+        .minor-card .info-btn {
+            margin-top: 0.5rem;
+            width: 100%;
+            max-width: 220px;
+        }
+        @media (max-width: 700px) {
+            .minor-cards-row {
+                flex-direction: column;
+                gap: 1.2rem;
+                align-items: center;
+            }
+            .minor-card {
+                min-width: 0;
+                width: 90vw;
+                max-width: 98vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <div class="logo-images">
+                     
+                    <img src="../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
+                </div>
+                <a href="../index.html" style="white-space: nowrap; font-size: 1.45rem; font-weight: 800; color: var(--primary-color); letter-spacing: 0.01em;">KSU Student Assist Cell</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="notes.html"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
+                <li><a href="papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
+                <li><a href="syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
+                <li><a href="new-admissions.html"><i class="fas fa-user-graduate"></i> New Admissions</a></li>
+                <li><a href="minor-courses.html"><i class="fas fa-graduation-cap"></i> Minor Courses</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="page-header">
+            <h1>Minor Courses</h1>
+            <p>Access information and resources for Minor Courses offered at CET.</p>
+        </section>
+
+        <!-- Department Selector -->
+        <div class="department-selector" style="margin: 2rem auto; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem;">
+            <button id="viewInfoBtn" class="info-btn">View General Information</button>
+            <select id="deptSelect" class="dept-select">
+                <option value="">-- Choose Department --</option>
+                <option value="aei">Applied Electronics & Instrumentation (AEI)</option>
+                <option value="cse">Computer Science & Engineering (CSE)</option>
+                <option value="ece">Electronics & Communication Engineering (ECE)</option>
+                <option value="eee">Electrical & Electronics Engineering (EEE)</option>
+                <option value="ie">Industrial Engineering (IE)</option>
+                <option value="me">Mechanical Engineering (ME)</option>
+            </select>
+            <select id="subSelect" class="dept-select" style="display:none; margin-top:0;">
+                <!-- Populated dynamically -->
+            </select>
+        </div>
+        <div id="deptInfo" style="max-width: 700px; margin: 2rem auto; text-align: center; font-size: 1.1rem; background: rgba(36,99,235,0.07); border-radius: 0.7rem; padding: 2rem 1.5rem; display: none;"></div>
+        <div id="generalInfoModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(16,23,42,0.75); z-index:2000; align-items:center; justify-content:center;">
+            <div style="background: #10172a; color:#fff; max-width: 95vw; width: 540px; border-radius:1rem; padding:0; box-shadow:0 8px 32px 0 rgba(31,38,135,0.25); position:relative; display:flex; flex-direction:column; max-height:90vh;">
+                <div style="position:sticky; top:0; background:#10172a; z-index:2; border-radius:1rem 1rem 0 0; padding:2.2rem 1.5rem 0.5rem 1.5rem;">
+                    <button id="closeGeneralInfo" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; color:#888; cursor:pointer;">&times;</button>
+                    <h2 style="font-size:1.3rem; font-weight:700; margin-bottom:1.2rem; color:var(--primary-color);">General Information</h2>
+                </div>
+                <div style="text-align:left; font-size:1.05rem; line-height:1.7; overflow-y:auto; padding:0 1.5rem 1.5rem 1.5rem; max-height:65vh;">
+                    <ol style="padding-left:1.2rem;">
+                        <li>Those who complete the minor scheme along with regular B-Tech Programme will get an additional minor degree.</li>
+                        <li>Minor Programme starts in Semester 3.</li>
+                        <li>Enrolment to the minor programme is NOT COMPULSORY.</li>
+                        <li>Students are generally not allowed to register for minors offered by their parent branches. Additionally, students are prohibited from opting for minor courses if there is more than 30% syllabus content overlap between courses listed in the major and minor programmes.</li>
+                        <li>Some of the slots for the course will be outside regular working hours (before/after regular hours)</li>
+                        <li>There shall not be any supplementary examinations for the theory courses listed in the Minor curriculum. If a student fails in any of the theory courses, they shall be permitted to register for the alternate MOOC course specified in the Minor curriculum.</li>
+                        <li>Each department might offer one or more minor programs. Each minor program contains courses in a specific domain (details in the next page).</li>
+                        <li>The student has to complete 15 CREDITS TO GET THE MINOR DEGREE; the split-up is as follows:
+                            <ul style="margin-top:0.5rem;">
+                                <li>Semester 3: 4 Credits</li>
+                                <li>Semester 4: 4 Credits</li>
+                                <li>Semester 5: 4 Credits</li>
+                                <li>Semester 6: 3 Credits</li>
+                                <li>You can also take a Maximum two MOOC courses approved by the University – 7 to 8 credits.</li>
+                            </ul>
+                        </li>
+                        <li>The minimum number of students per minor batch is 15 and maximum is 66. Minor programmes without minimum enrolment will not be offered.</li>
+                    </ol>
+                    <h3 style="margin-top:1.2rem; font-size:1.1rem; color:var(--primary-color);">Allotment of Minor Program</h3>
+                    <ol style="padding-left:1.2rem;">
+                        <li>You can give maximum 7 choices for Minor programs.</li>
+                        <li>Allotment is based on your choice and your SGPA in the first semester. (Make your choices carefully and wisely, keeping in mind your GPA). If none of the choices can be allotted, you will be allotted a minor program at random, in which case you may drop minor if you wish.</li>
+                        <li>Re-allotment requests will not be considered.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Insert pixel-perfect toolbar from syllabus.html below -->
+    <div class="quick-toolbar" id="quickToolbar">
+        <div class="toolbar-buttons" id="toolbarButtons">
+            <button title="Notes" onclick="location.href='notes.html'"><i class="fas fa-book"></i></button>
+            <button title="Textbooks" onclick="location.href='textbooks.html'"><i class="fas fa-book-reader"></i></button>
+            <button title="Papers" onclick="location.href='papers.html'"><i class="fas fa-file-alt"></i></button>
+            <button title="Syllabus" onclick="location.href='syllabus.html'"><i class="fas fa-list-alt"></i></button>
+            <button title="New Admissions" onclick="location.href='new-admissions.html'"><i class="fas fa-user-graduate"></i></button>
+            <button title="Minor Courses" onclick="location.href='minor-courses.html'"><i class="fas fa-graduation-cap"></i></button>
+        </div>
+        <button class="toolbar-toggle" id="toolbarToggle" title="Toggle Toolbar"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <div class="social-links" aria-label="Social Media Links">
+        <div class="social-popup"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><div class="popup-content"><a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a><a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a></div></div>
+        <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+
+    <footer>
+        <p>&copy; KSU CET 2025. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toolbar = document.getElementById('quickToolbar');
+        const toggle = document.getElementById('toolbarToggle');
+        toggle.addEventListener('click', function() {
+            toolbar.classList.toggle('collapsed');
+            localStorage.setItem('toolbarCollapsed', toolbar.classList.contains('collapsed'));
+        });
+        if(localStorage.getItem('toolbarCollapsed') === 'true') {
+            toolbar.classList.add('collapsed');
+        }
+    });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const deptSelect = document.getElementById('deptSelect');
+        const subSelect = document.getElementById('subSelect');
+        const deptInfo = document.getElementById('deptInfo');
+        // Placeholder PDF
+        const placeholderPDF = '../pdfs/placeholder.pdf';
+        // Data structure for departments and minors
+        const deptData = {
+            aei: {
+                label: 'Minor in Applied Electronics and Instrumentation.',
+                pdf: placeholderPDF
+            },
+            ce: {
+                label: 'Minor course details for CE will be updated soon.',
+                pdf: placeholderPDF
+            },
+            cse: {
+                minors: [
+                    { value: 'ai', label: 'Minor in Artificial Intelligence', info: 'Minor in Artificial Intelligence (CSE).', pdf: placeholderPDF },
+                    { value: 'cs', label: 'Minor in Computer Science', info: 'Minor in Computer Science (CSE).', pdf: placeholderPDF }
+                ]
+            },
+            ece: {
+                label: 'Minor in Electronics and Communication Engineering.',
+                pdf: placeholderPDF
+            },
+            eee: {
+                minors: [
+                    { value: 'control', label: 'Minor in Control Engineering', info: 'Minor in Control Engineering (EEE).', pdf: placeholderPDF },
+                    { value: 'energy', label: 'Minor in Energy Engineering', info: 'Minor in Energy Engineering (EEE).', pdf: placeholderPDF },
+                    { value: 'power', label: 'Minor in Power Converters & Drives', info: 'Minor in Power Converters & Drives (EEE).', pdf: placeholderPDF }
+                ]
+            },
+            ie: {
+                label: 'Minor in Industrial and Systems Engineering.',
+                pdf: placeholderPDF
+            },
+            me: {
+                minors: [
+                    { value: 'fin', label: 'Minor in Financial Management', info: 'Minor in Financial Management (ME).', pdf: placeholderPDF },
+                    { value: 'isdm', label: 'Minor in Intelligent Systems Design Manufacturing', info: 'Minor in Intelligent Systems Design Manufacturing (ME).', pdf: placeholderPDF }
+                ]
+            }
+        };
+        function showInfoBox(info, pdf) {
+            deptInfo.innerHTML = `<div class='minor-title'>${info}</div><a href="${pdf}" target="_blank" class="info-btn" style="margin:0 auto;max-width:320px;">View Curriculum</a>`;
+            deptInfo.style.display = 'block';
+        }
+        function showMinorCards(minors, deptKey) {
+            deptInfo.className = '';
+            deptInfo.innerHTML = `<div class='minor-cards-row'>` + minors.map(m => `
+                <div class='minor-card'>
+                    <div class='minor-card-title'>${m.label}</div>
+                    <a href="${m.pdf}" target="_blank" class="info-btn">View Curriculum</a>
+                </div>
+            `).join('') + `</div>`;
+            deptInfo.style.display = 'block';
+        }
+        deptSelect.addEventListener('change', function() {
+            const val = deptSelect.value;
+            deptInfo.style.display = 'none';
+            subSelect.style.display = 'none';
+            subSelect.innerHTML = '';
+            if (!val) return;
+            const data = deptData[val];
+            if (data.minors) {
+                showMinorCards(data.minors, val);
+            } else {
+                showInfoBox(data.label, data.pdf);
+            }
+        });
+        // General Info Modal
+        const viewInfoBtn = document.getElementById('viewInfoBtn');
+        const generalInfoModal = document.getElementById('generalInfoModal');
+        const closeGeneralInfo = document.getElementById('closeGeneralInfo');
+        viewInfoBtn.addEventListener('click', function() {
+            generalInfoModal.style.display = 'flex';
+        });
+        closeGeneralInfo.addEventListener('click', function() {
+            generalInfoModal.style.display = 'none';
+        });
+        generalInfoModal.addEventListener('click', function(e) {
+            if (e.target === generalInfoModal) {
+                generalInfoModal.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html> 

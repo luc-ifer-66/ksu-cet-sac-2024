@@ -17,6 +17,101 @@
             display: flex;
             flex-direction: column;
         }
+        .dropdown-section {
+            width: 85vw;
+            max-width: 1100px;
+            margin: 2.5rem auto 2rem auto;
+            padding: 1.5rem 0;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .custom-dropdown {
+            margin-bottom: 1.2rem;
+            border-radius: var(--border-radius);
+            background: rgba(36, 99, 235, 0.08);
+            box-shadow: 0 2px 10px 0 rgba(6,182,212,0.07);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .custom-dropdown:last-child {
+            margin-bottom: 0;
+        }
+        .dropdown-toggle {
+            width: 100%;
+            background: #10172a;
+            color: #fff;
+            border: none;
+            height: 5rem;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Exo 2', sans-serif;
+            padding: 1rem 1.2rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            transition: background 0.2s;
+        }
+        .dropdown-toggle:active, .dropdown-toggle:focus {
+            background: var(--accent-color);
+        }
+        .dropdown-content {
+            display: none;
+            background: rgba(16, 23, 42, 0.98);
+            color: var(--text-color);
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            border-top: 1px solid var(--border-color);
+            animation: fadeIn 0.3s;
+        }
+        .custom-dropdown.open .dropdown-content {
+            display: block;
+        }
+        .custom-dropdown.open .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+        .dropdown-toggle i {
+            margin-left: 0.7rem;
+            transition: transform 0.3s;
+        }
+        .dept-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .dept-item {
+            background: rgba(36,99,235,0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        @media (max-width: 700px) {
+            .dropdown-section {
+                width: 85vw;
+                padding: 0.6rem 0;
+                margin: 1rem auto;
+            }
+            .dropdown-toggle {
+                font-size: 1rem;
+                padding: 0.7rem 0.8rem;
+            }
+            .dropdown-content {
+                padding: 0.8rem 0.7rem 0.7rem 0.7rem;
+            }
+            .dept-item {
+                font-size: 0.97rem;
+                padding: 0.7rem 0.7rem;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .quick-toolbar {
             position: fixed;
             bottom: 2.2rem;
@@ -289,7 +384,7 @@
             #sem2 .subject-grid {
                 grid-template-columns: 1fr !important;
             }
-        }
+        }       
     </style>
 </head>
 <body>
@@ -312,7 +407,7 @@
                 <li><a href="textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
                 <li><a href="papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
                 <li><a href="syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
-                <li><a href="lectures.html"><i class="fas fa-chalkboard-teacher"></i> Lectures</a></li>
+                <li><a href="minor-courses.html"><i class="fas fa-graduation-cap"></i> Minor Courses</a></li>
                 <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
             </ul>
         </div>
@@ -324,9 +419,57 @@
             <p>Information for newly admitted students under the 2024 scheme</p>
             <h3>KEAM 2024 Last Ranks</h3>
         </section>
-        <img src="../images/modal-image.jpg" alt="KEAM 2024 Last Ranks" class="keam-last-ranks">
 
-        
+        <!-- DROPDOWNS START -->
+        <div class="dropdown-section">
+            <!-- Dropdown 1: Last Rank Image -->
+            <div class="custom-dropdown">
+                <button class="dropdown-toggle" type="button" aria-expanded="false">KEAM 2024 Last Ranks <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <img src="../images/modal-image.jpg" alt="KEAM 2024 Last Ranks" class="keam-last-ranks" style="max-width:100%;border-radius:var(--border-radius);margin:1rem 0;">
+                </div>
+            </div>
+            <!-- Dropdown 2: Department Descriptions -->
+            <div class="custom-dropdown">
+                <button class="dropdown-toggle" type="button" aria-expanded="false">Department Descriptions <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <div class="dept-list">
+                        <div class="dept-item"><strong>Applied Electronics & Instrumentation (AEI):</strong> <br> AEI blends electronics engineering with instrumentation and control systems. Students gain hands-on experience in labs, learning about sensors, automation, and process control. The department emphasizes both theory and practical skills, preparing graduates for roles in manufacturing, automation, and research industries.</div>
+                        <div class="dept-item"><strong>Civil Engineering (CE):</strong> <br> Civil Engineering focuses on designing, constructing, and maintaining infrastructure. The curriculum covers structures, geotechnics, transportation, and environment. Students benefit from labs and fieldwork, gaining practical insights and industry exposure for careers in construction, consultancy, and government.</div>
+                        <div class="dept-item"><strong>Computer Science & Engineering (CSE):</strong> <br> CSE provides a strong foundation in computer science, programming, and system design. Students explore AI, data science, cybersecurity, and software engineering. The curriculum is updated to reflect industry trends, preparing graduates for tech careers and higher studies.</div>
+                        <div class="dept-item"><strong>Electronics & Communication Engineering (ECE):</strong> <br> ECE focuses on electronic devices, communication systems, and embedded technologies. The program covers digital communication, VLSI, and signal processing. Students engage in hands-on projects and workshops, preparing for careers in telecommunications and electronics industries.</div>
+                        <div class="dept-item"><strong>Electrical & Electronics Engineering (EEE):</strong> <br> EEE covers electrical machines, power systems, electronics, and control engineering. Students receive practical training in labs and through internships. The department emphasizes innovation and problem-solving, preparing graduates for roles in power, automation, and electronics sectors.</div>
+                        <div class="dept-item"><strong>Industrial Engineering (IE):</strong> <br> IE specializes in optimizing processes, systems, and organizations. The curriculum includes operations research, production planning, and quality control. Students learn to improve efficiency and safety, preparing for careers in manufacturing, logistics, consulting, and management.</div>
+                        <div class="dept-item"><strong>Mechanical Engineering (ME):</strong> <br> ME provides grounding in mechanical design, thermodynamics, manufacturing, and materials science. Students participate in workshops and industry projects. The curriculum focuses on sustainability and emerging technologies, preparing graduates for careers in automotive, energy, and manufacturing.</div>
+                        <div class="dept-item"><strong>Electrical and Computer Engineering (EL):</strong> <br> EL integrates electrical engineering with computer systems, covering topics like embedded systems, digital electronics, microprocessors, and computer networks. Students gain practical experience in labs and projects, preparing for careers in automation, IT, electronics, and related industries. The curriculum emphasizes innovation, problem-solving, and interdisciplinary skills.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dropdown 3: Admission Procedures and Documents -->
+            <div class="custom-dropdown">
+                <button class="dropdown-toggle" type="button" aria-expanded="false">Admission Procedures & Documents <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <ol style="margin-bottom:0.7rem;">
+                        <li>Pay Fee to CEE (Commissioner for Entrance Examinations) <br /> &nbsp; &nbsp; &nbsp; ₹1000-9000 (fee changes based on Reservations)</li>
+                        <li>Report to the allotted college on the specified date with all required documents.</li>
+                        <li>Printed Reciepts of funds specified below: <br /> &nbsp; &nbsp; &nbsp; PTA Fund: ₹15000/- (B.Tech) / ₹17500/- (B.Arch)<br /> &nbsp; &nbsp; &nbsp; Bus development fund: ₹2000/- <br /> &nbsp; &nbsp; &nbsp; CETAA Membership Fund: ₹1000/-</li>
+                        <li>Submit original certificates for verification, including:</li>
+                        <ul>
+                            <li>KEAM Allotment Memo</li>
+                            <li>SSLC/10th Certificate (Proof of Age)</li>
+                            <li>Plus Two/12th Mark List</li>
+                            <li>Transfer Certificate (TC)</li>
+                            <li>Conduct Certificate</li>
+                            <li>Community/Caste Certificate (if applicable)</li>
+                            <li>Income Certificate (if applicable)</li>
+                            <li>Passport-size Photographs</li>
+                        </ul>
+                        <li>Complete the college admission formalities and attend the orientation session.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- DROPDOWNS END -->
     </main>
 
     <!-- Insert pixel-perfect toolbar from syllabus.html below -->
@@ -337,10 +480,19 @@
             <button title="Papers" onclick="location.href='papers.html'"><i class="fas fa-file-alt"></i></button>
             <button title="Syllabus" onclick="location.href='syllabus.html'"><i class="fas fa-list-alt"></i></button>
             <button title="New Admissions" onclick="location.href='new-admissions.html'"><i class="fas fa-user-graduate"></i></button>
-            <button title="Lectures" onclick="location.href='lectures.html'"><i class="fas fa-chalkboard-teacher"></i></button>
+            <button title="Minor Courses" onclick="location.href='minor-courses.html'"><i class="fas fa-graduation-cap"></i></button>
         </div>
         <button class="toolbar-toggle" id="toolbarToggle" title="Toggle Toolbar"><i class="fas fa-chevron-up"></i></button>
     </div>
+    <div class="social-links" aria-label="Social Media Links">
+        <div class="social-popup"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><div class="popup-content"><a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a><a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a></div></div>
+        <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+
+    <footer>
+        <p>&copy; KSU CET 2025. All rights reserved.</p>
+    </footer>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -385,14 +537,33 @@
     });
     </script>
 
-    <div class="social-links" aria-label="Social Media Links">
-        <div class="social-popup"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><div class="popup-content"><a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a><a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a></div></div>
-        <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
-    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.custom-dropdown .dropdown-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parent = btn.closest('.custom-dropdown');
+                const isOpen = parent.classList.contains('open');
+                // Close all dropdowns
+                document.querySelectorAll('.custom-dropdown').forEach(function(drop) {
+                    drop.classList.remove('open');
+                });
+                // Open this one if it was not already open
+                if (!isOpen) {
+                    parent.classList.add('open');
+                }
+            });
+        });
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.custom-dropdown')) {
+                document.querySelectorAll('.custom-dropdown').forEach(function(drop) {
+                    drop.classList.remove('open');
+                });
+            }
+        });
+    });
+    </script>
 
-    <footer>
-        <p>&copy; KSU CET 2025. All rights reserved.</p>
-    </footer>
 </body>
 </html> 
