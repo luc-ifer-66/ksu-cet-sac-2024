@@ -109,6 +109,14 @@ body::before {
   color: #fff;
   box-shadow: 0 2px 8px 0 rgba(99,102,241,0.15);
 }
+.logo a {
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
 
 #hero {
   position: relative;
@@ -125,7 +133,6 @@ body::before {
   font-size: 2.5rem; font-weight: 755;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
-  color: var(--primary-color);
 }
 .hero-content .accent {
   background: var(--accent-gradient);
