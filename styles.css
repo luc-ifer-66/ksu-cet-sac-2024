@@ -18,10 +18,11 @@
 }
 
 html, body {
+  font-weight: 600;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Exo 2', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
   background: radial-gradient(ellipse at 60% 40%, rgba(36, 99, 235, 0.10) 0%, transparent 70%), linear-gradient(135deg, #10172a 0%, #22304a 100%);
   color: var(--text-color);
   transition: background 0.5s, color 0.3s;
@@ -89,49 +90,6 @@ body::before {
   height: 40px; width: 40px; border-radius: 50%; object-fit: cover;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
-.logo a {
-  font-size: 1.4rem; font-weight: 800; color: var(--primary-color); letter-spacing: 1px;
-  text-decoration: none;
-}
-
-.search-bar-container {
-  display: flex;
-  align-items: center;
-  flex: 1 1 400px;
-  max-width: 450px;
-  position: relative;
-  gap: 0.5rem;
-}
-#searchInput {
-  width: 100%;
-  padding: 0.6rem 1rem;
-  border-radius: 2rem;
-  border: none;
-  background: rgba(0,0,0,0.04);
-  color: var(--text-color);
-  font-size: 1rem;
-  outline: none;
-  transition: background 0.2s;
-}
-#searchBtn {
-  background: var(--accent-gradient);
-  border: none;
-  border-radius: 50%;
-  color: #fff;
-  width: 5.5rem;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-#searchBtn:hover {
-  background: var(--primary-color);
-  color: #fff;
-}
-
 .nav-links {
   margin-left: auto !important;
   margin-right: 0 !important;
@@ -140,7 +98,7 @@ body::before {
   gap: 0.75rem; list-style: none;
 }
 .nav-links a {
-  color: var(--text-color); font-weight: 600; font-size: 1rem;
+  color: var(--text-color); font-weight: 600;
   display: flex; align-items: center; gap: 0.5rem;
   padding: 0.4rem 0.9rem; border-radius: 0.7rem;
   transition: background var(--transition), color var(--transition), box-shadow var(--transition);
@@ -157,15 +115,6 @@ body::before {
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 2.5rem;
 }
-.hero-bg {
-  position: absolute; inset: 0;
-  background: var(--accent-gradient);
-  opacity: 0.10;
-  height: 170px;
-  z-index: 0;
-  border-radius: 0 0 2.5rem 2.5rem;
-  filter: blur(8px);
-}
 .hero-content {
   position: relative; z-index: 1;
   margin-top: -45px;
@@ -173,7 +122,7 @@ body::before {
   padding: 3rem 1rem 2rem 1rem;
 }
 .hero-content h1 {
-  font-size: 2.7rem; font-weight: 800;
+  font-size: 2.5rem; font-weight: 755;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
   color: var(--primary-color);
@@ -273,7 +222,7 @@ main {
 }
 .contacts-section h2 {
   font-size: 1.3rem; font-weight: 700; margin-bottom: 1.2rem;
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 .contacts-grid {
   display: flex;

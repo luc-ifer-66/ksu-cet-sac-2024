@@ -14,6 +14,7 @@
   --max-width: 1200px;
   --test-color: #2563eb;
   --toolbar-bg: rgba(16, 23, 42, 0.98);
+  font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
 }
 body {
   color: var(--text-color) !important;
