@@ -10,6 +10,69 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="pages/pages.css">
+    <style>
+        /* --- Navbar Icon Only, Popout on Hover --- */
+        .navbar .nav-links {
+            display: flex;
+            gap: 0.7rem;
+        }
+        .navbar .nav-links li {
+            position: relative;
+            list-style: none;
+        }
+        .navbar .nav-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 0.7rem;
+            border-radius: 0.8rem;
+            color: #fff;
+            font-size: 1.25rem;
+            background: none;
+            transition: background 0.18s, color 0.18s;
+            position: relative;
+            min-width: 2.5rem;
+        }
+        .navbar .nav-links a i {
+            font-size: 1.35rem;
+            z-index: 2;
+        }
+        .navbar .nav-links a .nav-label {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%) scale(0.95);
+            background: #2463eb;
+            color: #fff;
+            white-space: nowrap;
+            padding: 0.4rem 1rem;
+            border-radius: 0.7rem;
+            margin-left: 0.5rem;
+            font-size: 1.08rem;
+            font-weight: 500;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+            transition: opacity 0.18s, transform 0.18s;
+            z-index: 10;
+        }
+        .navbar .nav-links a:hover .nav-label,
+        .navbar .nav-links a:focus .nav-label {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-50%) scale(1);
+        }
+        .navbar .nav-links a:hover,
+        .navbar .nav-links a:focus {
+            background: #22304a;
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .navbar .nav-links {
+                gap: 0.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -23,13 +86,14 @@
             <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
     
             <ul class="nav-links">
-                <li><a href="pages/notes.html"><i class="fas fa-book"></i>  Notes</a></li>
-                <li><a href="pages/textbooks.html"><i class="fas fa-book-reader"></i>  Textbooks</a></li>
-                <li><a href="pages/papers.html"><i class="fas fa-file-alt"></i>  Papers</a></li>
-                <li><a href="pages/syllabus.html"><i class="fas fa-list-alt"></i>  Syllabus & Curriculum</a></li>
-                <li><a href="pages/new-admissions.html"><i class="fas fa-user-graduate"></i>  New Admissions</a></li>
-                <li><a href="pages/minor-courses.html"><i class="fas fa-graduation-cap"></i>  Minor Courses</a></li>
-                <li><a href="pages/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="pages/notes.html"><i class="fas fa-book"></i><span class="nav-label">Notes</span></a></li>
+                <li><a href="pages/textbooks.html"><i class="fas fa-book-reader"></i><span class="nav-label">Textbooks</span></a></li>
+                <li><a href="pages/papers.html"><i class="fas fa-file-alt"></i><span class="nav-label">Papers</span></a></li>
+                <li><a href="pages/syllabus.html"><i class="fas fa-list-alt"></i><span class="nav-label">Syllabus & Curriculum</span></a></li>
+                <li><a href="pages/new-admissions.html"><i class="fas fa-user-graduate"></i><span class="nav-label">New Admissions</span></a></li>
+                <li><a href="pages/minor-courses.html"><i class="fas fa-graduation-cap"></i><span class="nav-label">Minor Courses</span></a></li>
+                <li><a href="pages/about.html"><i class="fas fa-info-circle"></i><span class="nav-label">About Us</span></a></li>
+                <li><a href="pages/challenge-courses-and-digital-101.html"><i class="fa-solid fa-calendar"></i><span class="nav-label">Challenge Courses and Digital 101</span></a></li>
             </ul>
         </div>
     </nav>
@@ -84,8 +148,14 @@
             <div class="service-card" data-title="Minor Courses">
                 <div class="service-icon main-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h2>Minor Courses</h2>
-                <p>Access recorded lectures, slides, and other teaching materials.</p>
+                <p>Gain insight and information regarding the minor courses offered by the college.</p>
                 <a href="pages/minor-courses.html" class="section-link">View Minor Courses <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-title="Challenge Courses and Digital 101">
+                <div class="service-icon main-icon"><i class="fa-solid fa-calendar"></i></div>
+                <h2>Challenge Courses and Digital 101</h2>
+                <p>Information regarding the challenge courses and digital 101 offered by the college.</p>
+                <a href="pages/challenge-courses-and-digital-101.html" class="section-link">View Challenge Courses and Digital 101 <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 

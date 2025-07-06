@@ -3,41 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - KSU Student Assist Cell</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Challenge Courses and Digital 101 - KSU Student Assist Cell</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        .coming-soon {
-            text-align: center;
-            max-width: 600px;
-            margin: 5rem auto;
-            padding: 2rem;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px var(--shadow-color);
-        }
-        
-        .coming-soon h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        .coming-soon p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-        
-        .coming-soon .icon {
-            font-size: 4rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
         .quick-toolbar {
             position: fixed;
             bottom: 2.2rem;
@@ -96,7 +69,7 @@
         .quick-toolbar.collapsed .toolbar-toggle i {
             transform: rotate(180deg);
         }
-        @media (max-width: 600px) {
+        @media (max-width: 600px){
             .quick-toolbar {
                 right: 1rem;
                 bottom: 1rem;
@@ -116,7 +89,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo" style="display: flex; align-items: center; gap: 0.7rem;">
+            <div class="logo">
                 <div class="logo-images">
                     <img src="../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark">
                 </div>
@@ -140,46 +113,55 @@
             </ul>
         </div>
     </nav>
-
     <main>
         <section class="page-header">
-            <h1>Textbooks</h1>
-            <p>Reference Textbooks for the 2024 Scheme</p>
+            <h1>Challenge Courses and Digital 101</h1>
+            <p>This page will provide information and resources regarding the challenge courses and Digital 101 offered by the college.</p>
         </section>
-
-        <div class="coming-soon">
-            <div class="icon">
-                <i class="fas fa-book-reader"></i>
-            </div>
-            <h2>Textbooks Coming Soon</h2>
-            <p>We are currently compiling a comprehensive list of textbooks for the 2024 Scheme. This section will be available shortly.</p>
-            <p>Reference textbooks will be made available department-wise</p>
+        <div class="placeholder-content" style="background-color: #000000c8; margin: 2rem 0; text-align: center; border-radius: 15px; padding: 2rem;">
+            <details id="digital101Dropdown" style="margin: 0 auto; background: none; border: none; text-align: left;">
+                <summary style="cursor: pointer; outline: none; font-size: 1.5rem; color: #2463eb; display: flex; align-items: left; gap: 0.7rem; padding: 0.7rem 0; border-radius: 8px; transition: background 0.18s; justify-content: space-between;">
+                    <span style="display: flex; align-items: center; gap: 0.7rem;">
+                        <img src="../images/digital-101.png" alt="Digital 101 Logo" style="width: 60px; border-radius: 10px; display: inline-block;">
+                        <span style="font-size: 1.1em; font-weight: 600;">Digital 101</span>
+                    </span>
+                    <i class="fas fa-chevron-down" id="digital101Chevron" style="transition: transform 0.3s; margin-left: 1.2rem; align-items: right;"></i>
+                </summary>
+                <div style="margin-top: 1.2rem; color: #ffffff; text-align: left;">
+                    <p>Digital 101 is a mandatory course for all students in the second semester of their undergraduate studies. It is a course that introduces students to the basics of digital technology and its applications.</p>
+                    <p>It is worth 1 credit, and has small video lectures and quizzes to evaluate your progress. To avoid issues, login with the Email you have provided to the college for registration.</p>
+                    <p>Registration for the exam is free and Registration codes will be provided to students by their HOD's or Staff Advisors.</p>
+                    <a href="https://www.futureskillsprime.in/journey/digital-101" target="_blank" rel="noopener" style="color: #5c8aec;">Click here to register for Digital 101</a>
+                </div>
+            </details>
         </div>
     </main>
-
-    <!-- Insert pixel-perfect toolbar from syllabus.html below -->
+    <!-- Quick Access Toolbar -->
     <div class="quick-toolbar" id="quickToolbar">
         <div class="toolbar-buttons" id="toolbarButtons">
             <button title="Notes" onclick="location.href='notes.html'"><i class="fas fa-book"></i></button>
             <button title="Textbooks" onclick="location.href='textbooks.html'"><i class="fas fa-book-reader"></i></button>
             <button title="Papers" onclick="location.href='papers.html'"><i class="fas fa-file-alt"></i></button>
             <button title="Syllabus" onclick="location.href='syllabus.html'"><i class="fas fa-list-alt"></i></button>
-            <button title="New Admissions" onclick="location.href='new-admissions.html'"><i class="fas fa-user-graduate"></i></button>
+            <button title="FAQ" onclick="location.href='faq.html'"><i class="fas fa-question-circle"></i></button>
             <button title="Minor Courses" onclick="location.href='minor-courses.html'"><i class="fas fa-graduation-cap"></i></button>
         </div>
         <button class="toolbar-toggle" id="toolbarToggle" title="Toggle Toolbar"><i class="fas fa-chevron-up"></i></button>
     </div>
-
     <div class="social-links" aria-label="Social Media Links">
-        <div class="social-popup"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><div class="popup-content"><a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a><a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a></div></div>
+        <div class="social-popup">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <div class="popup-content">
+                <a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a>
+                <a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a>
+            </div>
+        </div>
         <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
     </div>
-
     <footer>
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
-
     <script src="../script.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -193,6 +175,24 @@
             toolbar.classList.add('collapsed');
         }
     });
+    // Chevron rotation for dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdown = document.getElementById('digital101Dropdown');
+        var chevron = document.getElementById('digital101Chevron');
+        if(dropdown && chevron) {
+            dropdown.addEventListener('toggle', function() {
+                if(dropdown.open) {
+                    chevron.style.transform = 'rotate(0deg)';
+                } else {
+                    chevron.style.transform = 'rotate(-90deg)';
+                }
+            });
+            // Set initial state
+            if(!dropdown.open) {
+                chevron.style.transform = 'rotate(-90deg)';
+            }
+        }
+    });
     </script>
 </body>
-</html> 
+</html>

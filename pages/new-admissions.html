@@ -170,7 +170,7 @@
         .quick-toolbar.collapsed .toolbar-toggle i {
             transform: rotate(180deg);
         }
-        @media (max-width: 600px) {
+        @media (max-width: 600px){
             .quick-toolbar {
                 right: 1rem;
                 bottom: 1rem;
@@ -184,14 +184,14 @@
                 height: 2.7rem;
                 font-size: 1.3rem;
             }
+        }
         .semester-selector {
             display: flex;
             justify-content: center;
             margin-bottom: 2rem;
             padding: 1rem;
             border-radius: var(--border-radius);
-        }
-        
+        }   
         .semester-select {
             padding: 0.5rem 1rem;
             background-color: var(--hover-color);
@@ -385,49 +385,46 @@
                 grid-template-columns: 1fr !important;
             }
         }       
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+        }
+        .image-modal .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: var(--border-radius, 12px);
+            box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+        }
+        .close-modal {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2100;
+            text-shadow: 0 2px 8px #000;
+        }
+        @media (max-width: 600px) {
+            .close-modal {
+                top: 1rem;
+                right: 1rem;
+                font-size: 2rem;
+            }
+        }
     </style>
-<!-- Modal CSS -->
-<style>
-.image-modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-}
-.image-modal .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 95vw;
-    max-height: 90vh;
-    border-radius: var(--border-radius, 12px);
-    box-shadow: 0 4px 32px rgba(0,0,0,0.3);
-}
-.close-modal {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 2100;
-    text-shadow: 0 2px 8px #000;
-}
-@media (max-width: 600px) {
-    .close-modal {
-        top: 1rem;
-        right: 1rem;
-        font-size: 2rem;
-    }
-}
-</style>
 </head>
 <body>
     <nav class="navbar">
@@ -444,13 +441,15 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="notes.html"><i class="fas fa-book"></i> Notes</a></li>
-                <li><a href="textbooks.html"><i class="fas fa-book-reader"></i> Textbooks</a></li>
-                <li><a href="papers.html"><i class="fas fa-file-alt"></i> Papers</a></li>
-                <li><a href="syllabus.html"><i class="fas fa-list-alt"></i> Syllabus</a></li>
-                <li><a href="minor-courses.html"><i class="fas fa-graduation-cap"></i> Minor Courses</a></li>
-                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="../index.html"><i class="fas fa-home"></i><span class="nav-label">Home</span></a></li>
+                <li><a href="notes.html"><i class="fas fa-book"></i><span class="nav-label">Notes</span></a></li>
+                <li><a href="textbooks.html"><i class="fas fa-book-reader"></i><span class="nav-label">Textbooks</span></a></li>
+                <li><a href="papers.html"><i class="fas fa-file-alt"></i><span class="nav-label">Papers</span></a></li>
+                <li><a href="syllabus.html"><i class="fas fa-list-alt"></i><span class="nav-label">Syllabus</span></a></li>
+                <li><a href="new-admissions.html"><i class="fas fa-user-graduate"></i><span class="nav-label">New Admissions</span></a></li>
+                <li><a href="minor-courses.html"><i class="fas fa-graduation-cap"></i><span class="nav-label">Minor Courses</span></a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i><span class="nav-label">About Us</span></a></li>
+                <li><a href="challenge-courses-and-digital-101.html"><i class="fa-solid fa-calendar"></i><span class="nav-label">Challenge Courses and Digital 101</span></a></li>
             </ul>
         </div>
     </nav>

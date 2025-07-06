@@ -1276,3 +1276,65 @@ main .semester-grid {
         border-radius: calc(var(--border-radius) * 0.5); /* Even smaller border radius on very small screens */
     }
 }                       
+
+/* --- Navbar Icon Only, Popout on Hover --- */
+.navbar .nav-links {
+    display: flex;
+    gap: 0.7rem;
+}
+.navbar .nav-links li {
+    position: relative;
+    list-style: none;
+}
+.navbar .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 0.7rem;
+    border-radius: 0.8rem;
+    color: #fff;
+    font-size: 1.25rem;
+    background: none;
+    transition: background 0.18s, color 0.18s;
+    position: relative;
+    min-width: 2.5rem;
+}
+.navbar .nav-links a i {
+    font-size: 1.35rem;
+    z-index: 2;
+}
+.navbar .nav-links a .nav-label {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%) scale(0.95);
+    background: #2463eb;
+    color: #fff;
+    white-space: nowrap;
+    padding: 0.4rem 1rem;
+    border-radius: 0.7rem;
+    margin-right: 0.5rem;
+    font-size: 1.08rem;
+    font-weight: 500;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+    transition: opacity 0.18s, transform 0.18s;
+    z-index: 10;
+}
+.navbar .nav-links a:hover .nav-label,
+.navbar .nav-links a:focus .nav-label {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+}
+.navbar .nav-links a:hover,
+.navbar .nav-links a:focus {
+    background: #22304a;
+    color: #fff;
+}
+@media (max-width: 900px) {
+    .navbar .nav-links {
+        gap: 0.3rem;
+    }
+}                       
