@@ -76,11 +76,10 @@
         @media (max-width: 900px) {
             .syllabus-center-container {
                 min-height: 70vh;
-                margin-top: 1.2rem;
+                margin-top: 0.5rem;
             }
             .syllabus-select-row, .syllabus-btn-row {
                 flex-direction: column;
-                
                 gap: 1rem;
             }
         }
@@ -266,6 +265,12 @@
             </ul>
         </div>
     </nav>
+    <main>
+        <section class="page-header" style="margin-bottom: -5%;">
+            <h1>Syllabus & Curriculum</h1>
+            <p>Explore the detailed syllabus and curriculum for all departments at CET.</p>
+        </section>
+    </main>
     <div class="syllabus-center-container">
         <div class="syllabus-select-row" id="typeSelectRow">
             <select class="syllabus-select" id="typeSelect">
@@ -305,6 +310,7 @@
             <button class="syllabus-btn" id="viewBtn">View</button>
         </div>
     </div>
+    
     <div class="quick-toolbar" id="quickToolbar">
         <div class="toolbar-buttons" id="toolbarButtons">
             <button title="Notes" onclick="location.href='notes.html'"><i class="fas fa-book"></i></button>
