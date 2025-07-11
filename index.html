@@ -158,7 +158,6 @@
                 <a href="pages/challenge-courses-and-digital-101.html" class="section-link">View Challenge Courses and Digital 101 <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
-
         <!-- Contacts Section -->
         <section class="contacts-section">
             <h2>Contact Us</h2>
@@ -234,48 +233,6 @@
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Modal functionality
-        const modal = document.getElementById('entryModal');
-        const closeBtn = document.querySelector('.modal-close');
-
-        function closeModal() {
-            if (modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Close modal when clicking the close button
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                closeModal();
-            });
-        }
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close modal when pressing ESC key
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Make entire service cards clickable
-        document.querySelectorAll('.service-card').forEach(card => {
-            const innerLink = card.querySelector('.section-link');
-            if (innerLink) {
-                card.style.cursor = 'pointer';
-                card.addEventListener('click', () => {
-                    window.location.href = innerLink.href;
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html> 

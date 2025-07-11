@@ -195,12 +195,37 @@
             box-shadow: 0 5px 15px var(--test-color);
         }
         .dept-select {
-            padding: 0.9rem 1.5rem;
+            padding: 0.9rem 2.5rem 0.9rem 1.5rem;
             font-size: 1.1rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--border-color);
-            height: 70px;
-            margin-top: 1.2rem;
+            font-family: "Lexend", sans-serif;
+            border-radius: 0.7rem;
+            border: 1px solid var(--primary-color, #2463eb);
+            background: #10172a url('data:image/svg+xml;utf8,<svg fill="%23b3c6ff" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>') no-repeat right 1.2rem center/1.2em 1.2em;
+            color: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            box-shadow: 0 2px 8px 0 rgba(36,99,235,0.10);
+            margin: 0 auto;
+            display: block;
+            min-width: 220px;
+            max-width: 700px;
+            width: 75vw;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .dept-select:focus, .dept-select:hover {
+            border-color: var(--accent-color, #5c8aec);
+            outline: none;
+            box-shadow: 0 4px 16px 0 rgba(36,99,235,0.18);
+        }
+        @media (max-width: 700px) {
+            .dept-select {
+                font-size: 1rem;
+                padding: 0.7rem 2.2rem 0.7rem 1.2rem;
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+            }
         }
         .minor-title {
             font-size: 1.45rem;
@@ -327,7 +352,7 @@
 
         <!-- Department Selector -->
         <div class="department-selector" style="margin: 2rem auto; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem;">
-            <button id="viewInfoBtn" class="info-btn">View General Information</button>
+            <button id="viewInfoBtn" class="info-btn" style="font-family: 'Lexend', sans-serif;">View General Information</button>
             <select id="deptSelect" class="dept-select">
                 <option value="">-- Choose Department --</option>
                 <option value="aei">Applied Electronics & Instrumentation (AEI)</option>
