@@ -93,66 +93,32 @@ if (toolbar) {
     });
 }
 
-// --- Quick Toolbar Toggle & State Persistence ---
-document.addEventListener('DOMContentLoaded', function() {
-    const toolbar = document.getElementById('quickToolbar');
-    const toggle = document.getElementById('toolbarToggle');
-    if (toolbar && toggle) {
-        toggle.addEventListener('click', function() {
-            toolbar.classList.toggle('collapsed');
-            localStorage.setItem('toolbarCollapsed', toolbar.classList.contains('collapsed'));
-        });
-        if (localStorage.getItem('toolbarCollapsed') === 'true') {
-            toolbar.classList.add('collapsed');
-        }
-    }
-});
-
-// --- Department Card Click Logic (for notes.html, papers.html, etc.) ---
-document.addEventListener('DOMContentLoaded', function () {
-    const departmentCards = document.querySelectorAll('.department-card');
-    departmentCards.forEach(card => {
-        card.addEventListener('click', function () {
-            const link = this.querySelector('.department-link');
-            if (link) {
-                window.location.href = link.getAttribute('href');
-            }
-        });
-    });
-});
-
-// --- Service Card Click & Modal Logic (for index.html) ---
-document.addEventListener('DOMContentLoaded', function () {
-    // Service card click
-    document.querySelectorAll('.service-card').forEach(card => {
-        const innerLink = card.querySelector('.section-link');
-        if (innerLink) {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', () => {
-                window.location.href = innerLink.href;
-            });
-        }
-    });
-    // Modal logic
+// Entry Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('entryModal');
-    const closeBtn = document.querySelector('.modal-close');
+    const closeBtn = modal.querySelector('.modal-close');
+    
     function closeModal() {
         if (modal) {
-            modal.style.display = 'none';
+            modal.remove(); // Completely remove the modal from DOM
         }
     }
+    
+    // Close modal when clicking the close button
     if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            closeModal();
-        });
+        closeBtn.addEventListener('click', closeModal);
     }
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
             closeModal();
         }
     });
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
+    
+    // Close modal when pressing ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
             closeModal();
         }
     });

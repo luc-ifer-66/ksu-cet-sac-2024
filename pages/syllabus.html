@@ -335,7 +335,6 @@
         <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
     </div>
-    <script src="../script.js"></script>
     <script>
     const placeholderLinks = {
         syllabus: {
@@ -523,6 +522,16 @@
         });
 
         updateSelectors();
+
+        const toolbar = document.getElementById('quickToolbar');
+        const toggle = document.getElementById('toolbarToggle');
+        toggle.addEventListener('click', function() {
+            toolbar.classList.toggle('collapsed');
+            localStorage.setItem('toolbarCollapsed', toolbar.classList.contains('collapsed'));
+        });
+        if(localStorage.getItem('toolbarCollapsed') === 'true') {
+            toolbar.classList.add('collapsed');
+        }
 
         document.addEventListener('keydown', function(e) {
             if (pdfModalOverlay.classList.contains('active') && (e.key === 'Escape' || e.key === 'Esc')) {

@@ -10,6 +10,172 @@
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../pages.css">
+    <style>
+        body {
+            background: radial-gradient(ellipse at 60% 40%, rgba(36, 99, 235, 0.10) 0%, transparent 70%), linear-gradient(135deg, #10172a 0%, #22304a 100%);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .quick-toolbar {
+            position: fixed;
+            bottom: 2.2rem;
+            right: 2.2rem;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: flex-end;
+            z-index: 1200;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            border-radius: 2rem;
+            transition: right 0.3s, width 0.3s;
+        }
+        .toolbar-toggle {
+            background: var(--primary-color);
+            border: none;
+            color: #fff;
+            font-size: 1.7rem;
+            border-radius: 50%;
+            width: 3.2rem;
+            height: 3.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.13);
+            margin-top: 0.5rem;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .toolbar-toggle:active {
+            background: var(--accent-color);
+        }
+        .toolbar-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: var(--toolbar-bg);
+            border-radius: 1.5rem 1.5rem 0.8rem 0.8rem;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.13);
+            padding: 1rem 0.7rem 0.5rem 0.7rem;
+            margin-bottom: 0.5rem;
+            transition: max-height 0.3s, opacity 0.3s, margin-bottom 0.3s;
+            max-height: 1000px;
+            opacity: 1;
+        }
+        .quick-toolbar.collapsed .toolbar-buttons {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+            padding: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .quick-toolbar.collapsed .toolbar-toggle i {
+            transform: rotate(180deg);
+        }
+        @media (max-width: 600px) {
+            .quick-toolbar {
+                right: 1rem;
+                bottom: 1rem;
+            }
+            .toolbar-buttons {
+                border-radius: 1.2rem 1.2rem 0.7rem 0.7rem;
+                padding: 0.7rem 0.5rem 0.3rem 0.5rem;
+            }
+            .toolbar-toggle {
+                width: 2.7rem;
+                height: 2.7rem;
+                font-size: 1.3rem;
+            }
+        }
+        /* Custom scrollbar style - simple blue line */
+        .scrollable-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .scrollable-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .scrollable-list::-webkit-scrollbar-thumb {
+            background-color: #0066cc;
+            border-radius: 2px;
+        }
+        
+        /* For Firefox */
+        .scrollable-list {
+            scrollbar-width: thin;
+            scrollbar-color: #0066cc transparent;
+        }
+        
+        /* Mobile semester cards layout */
+        @media (max-width: 768px) {
+            .semester-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+            
+            .semester-card {
+                width: 100%;
+                height: auto !important;
+                min-height: 300px;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Coming soon styling */
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .coming-soon i {
+            font-size: 2rem;
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .semester-card {
+            background: rgba(16, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(6, 182, 212, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+        }
+        
+        .textbook-list {
+            padding-left: 1rem;
+        }
+        
+        .textbook-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header h1 {
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .page-header p {
+            font-size: 0.9rem;
+        }
+
+        .scrollable-list, .coming-soon, .textbook-list {
+            background: transparent !important;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -150,7 +316,19 @@
     </div>
         <button class="toolbar-toggle" id="toolbarToggle" title="Toggle Toolbar"><i class="fas fa-chevron-up"></i></button>
     </div>
-    <script src="../../script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toolbar = document.getElementById('quickToolbar');
+        const toggle = document.getElementById('toolbarToggle');
+        toggle.addEventListener('click', function() {
+            toolbar.classList.toggle('collapsed');
+            localStorage.setItem('toolbarCollapsed', toolbar.classList.contains('collapsed'));
+        });
+        if(localStorage.getItem('toolbarCollapsed') === 'true') {
+            toolbar.classList.add('collapsed');
+        }
+    });
+    </script>
 
     <div class="social-links" aria-label="Social Media Links">
         <div class="social-popup"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><div class="popup-content"><a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a><a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a></div></div>
@@ -161,6 +339,8 @@
     <footer>
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
+
+    <script src="../../script.js"></script>
 </body>
 </html> 
 

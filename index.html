@@ -108,7 +108,7 @@
 
     <!-- Image Section -->
     <div class="main-image-section" style="display: flex; justify-content: center; align-items: center; margin: 20px 0 30px 0;">
-        <img src="images/modal-image.jpg" alt="CET Campus" style="margin-top: -70px; width: 795px; height: 569px; object-fit: cover; border-radius: 15px; border: none; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
+        <img src="images/CET.png" alt="CET Campus" style="margin-top: -70px; width: 795px; height: 569px; object-fit: cover; border-radius: 15px; border: none; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
     </div>
 
     <!-- Service Grid -->
@@ -233,6 +233,48 @@
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('entryModal');
+        const closeBtn = document.querySelector('.modal-close');
+
+        function closeModal() {
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal when clicking the close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                closeModal();
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal when pressing ESC key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Make entire service cards clickable
+        document.querySelectorAll('.service-card').forEach(card => {
+            const innerLink = card.querySelector('.section-link');
+            if (innerLink) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    window.location.href = innerLink.href;
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

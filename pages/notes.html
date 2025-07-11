@@ -177,6 +177,20 @@
         <p>&copy; KSU CET 2025. All rights reserved.</p>
     </footer>
     <script src="../script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toolbar = document.getElementById('quickToolbar');
+        const toggle = document.getElementById('toolbarToggle');
+        toggle.addEventListener('click', function() {
+            toolbar.classList.toggle('collapsed');
+            localStorage.setItem('toolbarCollapsed', toolbar.classList.contains('collapsed'));
+        });
+        if(localStorage.getItem('toolbarCollapsed') === 'true') {
+            toolbar.classList.add('collapsed');
+        }
+    });
+    </script>
+    <script> document.addEventListener('DOMContentLoaded', function () { const departmentCards = document.querySelectorAll('.department-card'); departmentCards.forEach(card => { card.addEventListener('click', function () { const link = this.querySelector('.department-link'); if (link) { window.location.href = link.getAttribute('href'); } }); }); }); </script>
 </body>
 
 </html>
