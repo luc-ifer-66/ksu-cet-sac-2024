@@ -344,16 +344,7 @@
             
             .textbook-list li {
                 margin-bottom: 0.5rem;
-            }
-            
-            .page-header h1 {
-                font-size: 1.5rem;
-                line-height: 1.3;
-            }
-            
-            .page-header p {
-                font-size: 0.9rem;
-            }
+            }   
         
         /* Mobile semester cards layout */
         @media (max-width: 768px) {
@@ -401,10 +392,20 @@
         .image-modal .modal-content {
             margin: auto;
             display: block;
-            max-width: 95vw;
-            max-height: 90vh;
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: none;
+            object-fit: contain;
             border-radius: var(--border-radius, 12px);
             box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+        }
+        /* Only constrain image if it would overflow viewport */
+        @media (max-width: 100vw), (max-height: 100vh) {
+            .image-modal .modal-content {
+                max-width: 95vw;
+                max-height: 90vh;
+            }
         }
         .close-modal {
             position: absolute;
@@ -462,12 +463,38 @@
         </section>
 
         <!-- DROPDOWNS START -->
-        <div class="dropdown-section">
+        <div class="dropdown-section" style="margin-top: -3rem;">
             <!-- Dropdown 1: Last Rank Image -->
             <div class="custom-dropdown">
                 <button class="dropdown-toggle" type="button" aria-expanded="false">KEAM 2024 Last Ranks <i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
                     <img src="../images/modal-image.jpg" alt="KEAM 2024 Last Ranks" class="keam-last-ranks" style="max-width:100%;border-radius:var(--border-radius);margin:1rem 0;">
+                </div>
+            </div>
+            <div class="custom-dropdown">
+                <button class="dropdown-toggle" type="button" aria-expanded="false">Admission Procedures & Documents <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <ol style="margin-bottom:0.7rem;">
+                        <li>Pay Fee to CEE (Commissioner for Entrance Examinations) <br /> &nbsp; &nbsp; &nbsp; ₹1000-9000 (fee changes based on Reservations)</li>
+                        <li>Report to the allotted college on the specified date with all required documents.</li>
+                        <li>Printed Reciepts of funds specified below: <br /> &nbsp; &nbsp; &nbsp; PTA Fund: ₹15000/- (B.Tech) / ₹17500/- (B.Arch)<br /> &nbsp; &nbsp; &nbsp; Bus development fund: ₹2000/- <br /> &nbsp; &nbsp; &nbsp; CETAA Membership Fund: ₹1000/-</li>
+                        <li>Submit original certificates and attested photocopies for verification, including:</li>
+                        <ul>
+                            <li>KEAM Allotment Memo</li>
+                            <li>KEAM Datasheet</li>
+                            <li>SSLC/10th Certificate/Birth Certificate (Proof of Age)</li>
+                            <li>Plus Two/12th Mark List</li>
+                            <li>Transfer Certificate (TC) & Conduct Certificate</li>                        
+                            <li>Migration Certificate (if applicable)</li>
+                            <li>Physical Fitness Certificate in prescribed format</li>
+                            <li>Community/Caste Certificate (if applicable)</li>
+                            <li>Income Certificate (if applicable)</li>
+                            <li>Passport-size Photographs</li>
+                            <li>Fee and Fund Remittance Receipts</li>
+                            <li>Any other relevant documents</li>
+                        </ul>
+                        <li>Complete the college admission formalities and attend the orientation session.</li>
+                    </ol>
                 </div>
             </div>
             <!-- Dropdown 2: Department Descriptions -->
@@ -484,29 +511,6 @@
                         <div class="dept-item"><strong>Mechanical Engineering (ME):</strong> <br> ME provides grounding in mechanical design, thermodynamics, manufacturing, and materials science. Students participate in workshops and industry projects. The curriculum focuses on sustainability and emerging technologies, preparing graduates for careers in automotive, energy, and manufacturing.</div>
                         <div class="dept-item"><strong>Electrical and Computer Engineering (EL):</strong> <br> EL integrates electrical engineering with computer systems, covering topics like embedded systems, digital electronics, microprocessors, and computer networks. Students gain practical experience in labs and projects, preparing for careers in automation, IT, electronics, and related industries. The curriculum emphasizes innovation, problem-solving, and interdisciplinary skills.</div>
                     </div>
-                </div>
-            </div>
-            <!-- Dropdown 3: Admission Procedures and Documents -->
-            <div class="custom-dropdown">
-                <button class="dropdown-toggle" type="button" aria-expanded="false">Admission Procedures & Documents <i class="fas fa-chevron-down"></i></button>
-                <div class="dropdown-content">
-                    <ol style="margin-bottom:0.7rem;">
-                        <li>Pay Fee to CEE (Commissioner for Entrance Examinations) <br /> &nbsp; &nbsp; &nbsp; ₹1000-9000 (fee changes based on Reservations)</li>
-                        <li>Report to the allotted college on the specified date with all required documents.</li>
-                        <li>Printed Reciepts of funds specified below: <br /> &nbsp; &nbsp; &nbsp; PTA Fund: ₹15000/- (B.Tech) / ₹17500/- (B.Arch)<br /> &nbsp; &nbsp; &nbsp; Bus development fund: ₹2000/- <br /> &nbsp; &nbsp; &nbsp; CETAA Membership Fund: ₹1000/-</li>
-                        <li>Submit original certificates for verification, including:</li>
-                        <ul>
-                            <li>KEAM Allotment Memo</li>
-                            <li>SSLC/10th Certificate (Proof of Age)</li>
-                            <li>Plus Two/12th Mark List</li>
-                            <li>Transfer Certificate (TC)</li>
-                            <li>Conduct Certificate</li>
-                            <li>Community/Caste Certificate (if applicable)</li>
-                            <li>Income Certificate (if applicable)</li>
-                            <li>Passport-size Photographs</li>
-                        </ul>
-                        <li>Complete the college admission formalities and attend the orientation session.</li>
-                    </ol>
                 </div>
             </div>
         </div>
