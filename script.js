@@ -7,15 +7,56 @@ const navLinks = document.querySelector('.nav-links');
 function toggleNavigation() {
     navLinks.classList.toggle('active');
     const spans = navToggle.querySelectorAll('span');
-    
+    let closeIcon = navToggle.querySelector('.close-x');
     if (navLinks.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        // Hide hamburger spans
+        spans.forEach(span => span.style.display = 'none');
+        // Add X icon if not present
+        if (!closeIcon) {
+            closeIcon = document.createElement('i');
+            closeIcon.className = 'fas fa-times close-x';
+            closeIcon.style.fontSize = '2rem';
+            closeIcon.style.color = 'var(--primary-color, #2463eb)';
+            closeIcon.style.position = 'absolute';
+            closeIcon.style.top = '0.5rem';
+            closeIcon.style.right = '0';
+            closeIcon.style.transform = 'none';
+            closeIcon.style.margin = '8px 12px 0 0'; // Optional: add margin for spacing from edge
+            navToggle.appendChild(closeIcon);
+        } else {
+            closeIcon.style.display = 'block';
+        }
+        // Show nav-labels (text) for all links
+        document.querySelectorAll('.nav-links .nav-label').forEach(label => {
+            label.style.display = 'inline';
+            label.style.opacity = '1';
+            label.style.position = 'static';
+            label.style.pointerEvents = 'auto';
+            label.style.transform = 'none';
+        });
     } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        // Show hamburger spans
+        spans.forEach(span => span.style.display = 'block');
+        // Hide X icon
+        if (closeIcon) closeIcon.style.display = 'none';
+        // Hide nav-labels (text) for all links on desktop, but keep for mobile
+        if (window.innerWidth <= 1000) {
+            document.querySelectorAll('.nav-links .nav-label').forEach(label => {
+                label.style.display = 'inline';
+                label.style.opacity = '1';
+                label.style.position = 'static';
+                label.style.pointerEvents = 'auto';
+                label.style.transform = 'none';
+            });
+        } else {
+            document.querySelectorAll('.nav-links .nav-label').forEach(label => {
+                label.style.display = '';
+                label.style.opacity = '';
+                label.style.position = '';
+                label.style.pointerEvents = '';
+                label.style.transform = '';
+            });
+        }
     }
 }
 
