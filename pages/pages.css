@@ -1310,7 +1310,7 @@ main .semester-grid {
     right: 100%;
     top: 50%;
     transform: translateY(-50%) scale(0.95);
-    background: #2463eb09;
+    background: #2463eb;
     color: #fff;
     white-space: nowrap;
     padding: 0.4rem 1rem;
