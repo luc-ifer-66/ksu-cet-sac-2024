@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KSU Student Assist Cell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pages.css">
+    <style>
+    .card-link {
+      display: block;
+      width: 20em;
+      height: 3.5em;
+      border: 3px ridge #149CEA;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      transition: 1s;
+      border-radius: 0.9em;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Poppins', system-ui, sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 3.5em;
+      text-align: center;
+      margin: 0rem auto 0;
+    }
+
+    @media (max-width: 768px) {
+      .card-link {
+        width: 90%;
+        max-width: 300px;
+      }
+    }
+
+    .social-popup {
+      position: relative;
+      display: inline-block;
+    }
+
+    .social-popup .popup-content {
+        visibility: hidden;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(16, 23, 42, 0.95);
+        padding: 0.5rem;
+        border-radius: 0.8rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        min-width: 200px;
+        opacity: 0;
+        transition: all 0.3s ease;
+        margin-bottom: 10px;
+        border: 1px solid rgba(6, 182, 212, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    .social-popup:hover .popup-content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup-content a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .popup-content a i {
+      font-size: 1rem;
+    }
+
+    .popup-content a:hover {
+      background: rgba(6, 182, 212, 0.2);
+    }
+
+    .popup-content::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 8px;
+      border-style: solid;
+      border-color: rgba(16, 23, 42, 0.95) transparent transparent transparent;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo" style="display: flex; align-items: center; gap: 0.7rem;">
+                <div class="logo-images">  
+                    <img src="../images/ksu logo white.png" alt="KSU Logo" class="logo-image logo-ksu-dark"> 
+                </div>
+                <a href="../index.html">KSU Student Assist Cell</a>
+            </div>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i><span class="nav-label">Home</span></a></li>
+                <li><a href="notes.html"><i class="fas fa-book"></i><span class="nav-label">Notes</span></a></li>
+                <li><a href="textbooks.html"><i class="fas fa-book-reader"></i><span class="nav-label">Textbooks</span></a></li>
+                <li><a href="papers.html"><i class="fas fa-file-alt"></i><span class="nav-label">Papers</span></a></li>
+                <li><a href="syllabus.html"><i class="fas fa-list-alt"></i><span class="nav-label">Syllabus</span></a></li>
+                <li><a href="new-admissions.html"><i class="fas fa-user-graduate"></i><span class="nav-label">New Admissions</span></a></li>
+                <li><a href="minor-courses.html"><i class="fas fa-graduation-cap"></i><span class="nav-label">Minor Courses</span></a></li>
+                <li><a href="challenge-courses-and-digital-101.html"><i class="fa-solid fa-calendar"></i><span class="nav-label">Challenge Courses and Digital 101</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="page-header">
+            <h1>About Us</h1>
+            <p>Learn more about the KSU CET Student Assist Cell and our mission.</p>
+        </section>
+        <div class="papers-container" style="max-width: 700px; margin: 0 auto;">
+            <div class="department-card" style="background: var(--card-glass); box-shadow: var(--shadow-color); padding: 2.5rem 2rem; border-radius: var(--border-radius);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.2rem; color: var(--primary-color);">Our Mission</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                    KSU CET Student Assist Cell was created by students, for students. Our goal is simple: make it effortless to find resources for studies, help with question papers and more.
+                </p>
+                <h2 style="font-size: 1.2rem; margin-bottom: 0.7rem; color: var(--primary-color);">What We Do</h2>
+                <ol class="amenities-list" style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-color); text-align: left; margin-left: 0; padding-left: 1.2em;">
+                    <li>Curate up-to-date notes and textbooks.</li>
+                    <li>Help with question papers and more.</li>
+                    <li>Provide a platform to access all the resources for studies.</li>
+                </ol>
+                <!-- <h2 style="font-size: 1.2rem; margin-bottom: 0.7rem; color: var(--primary-color);">Our other websites</h2>
+                <a href="https://ksucethostelfinder.netlify.app" target="_blank" rel="noopener" class="card-link" >
+                    Visit KSU CET Hostel Finder Website
+                </a>-->
+            </div>
+        </div>
+    </main>
+    <div class="social-links" aria-label="Social Media Links">
+        <div class="social-popup">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <div class="popup-content">
+                <a href="https://www.instagram.com/studentassistcell_cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU Student Assist Cell</a>
+                <a href="https://www.instagram.com/ksu.cet/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>KSU CET</a>
+            </div>
+        </div>
+        <a href="https://chat.whatsapp.com/JYDuhIWcdQLH2mud9LkkuU" aria-label="Whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:ksucetsac2024@gmail.com" aria-label="Gmail" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <footer>
+        <p>&copy; KSU CET 2025. All rights reserved.</p>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html> 
