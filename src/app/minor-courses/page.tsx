@@ -6,7 +6,31 @@ import SocialLinks from '@/components/SocialLinks'
 import Footer from '@/components/Footer'
 import { Info, X, FileText, ExternalLink } from 'lucide-react'
 
-const minorPrograms = {
+type MinorProgram = {
+  value: string;
+  label: string;
+  pdf: string;
+};
+
+type DepartmentWithMinors = {
+  minors: MinorProgram[];
+};
+
+type DepartmentWithSingle = {
+  label: string;
+  pdf: string;
+};
+
+type MinorPrograms = {
+  aei: DepartmentWithSingle;
+  cse: DepartmentWithMinors;
+  ece: DepartmentWithSingle;
+  eee: DepartmentWithMinors;
+  ie: DepartmentWithSingle;
+  me: DepartmentWithMinors;
+};
+
+const minorPrograms: MinorPrograms = {
   aei: {
     label: 'Minor in Applied Electronics and Instrumentation.',
     pdf: '/pdfs/AEI/AE Applied Electronics and Instrumentation.pdf'
@@ -140,13 +164,38 @@ export default function MinorCoursesPage() {
           {/* Department Info Display */}
           {selectedDepartment && (
             <div className="animate-slide-up">
-              {minorPrograms[selectedDepartment as keyof typeof minorPrograms]?.minors ? (
-                <div className="grid gap-4">
-                  {minorPrograms[selectedDepartment as keyof typeof minorPrograms].minors?.map((minor, index) => (
-                    <div key={index} className="glass-card p-6 text-center">
-                      <h3 className="text-lg font-semibold mb-4 text-text-primary">{minor.label}</h3>
+              {(() => {
+                const dept = minorPrograms[selectedDepartment as keyof MinorPrograms];
+                if ('minors' in dept) {
+                  // Department has multiple minors
+                  return (
+                    <div className="grid gap-4">
+                      {dept.minors.map((minor, index) => (
+                        <div key={index} className="glass-card p-6 text-center">
+                          <h3 className="text-lg font-semibold mb-4 text-text-primary">{minor.label}</h3>
+                          <a
+                            href={minor.pdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 btn-primary"
+                          >
+                            <FileText className="w-4 h-4" />
+                            View Curriculum
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                } else {
+                  // Department has single minor
+                  return (
+                    <div className="glass-card p-6 text-center">
+                      <h3 className="text-lg font-semibold mb-4 text-text-primary">
+                        {dept.label}
+                      </h3>
                       <a
-                        href={minor.pdf}
+                        href={dept.pdf}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 btn-primary"
@@ -156,25 +205,9 @@ export default function MinorCoursesPage() {
                         <ExternalLink className="w-4 h-4" />
                       </a>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="glass-card p-6 text-center">
-                  <h3 className="text-lg font-semibold mb-4 text-text-primary">
-                    {minorPrograms[selectedDepartment as keyof typeof minorPrograms]?.label}
-                  </h3>
-                  <a
-                    href={minorPrograms[selectedDepartment as keyof typeof minorPrograms]?.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 btn-primary"
-                  >
-                    <FileText className="w-4 h-4" />
-                    View Curriculum
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              )}
+                  );
+                }
+              })()}
             </div>
           )}
         </div>
